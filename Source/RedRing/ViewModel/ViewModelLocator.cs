@@ -16,7 +16,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Marimo.RedRing.Wpf.ViewModel
+namespace Marimo.RedRing.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

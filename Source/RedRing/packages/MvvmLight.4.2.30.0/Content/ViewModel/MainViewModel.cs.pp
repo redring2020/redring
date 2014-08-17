@@ -1,6 +1,6 @@
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 
-namespace Marimo.RedRing.Wpf.ViewModel
+namespace $rootnamespace$.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.
