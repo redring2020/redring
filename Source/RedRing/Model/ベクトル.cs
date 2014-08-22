@@ -25,7 +25,7 @@ namespace Marimo.RedRing.Model
             }
             set
             {
-                Set(() => X, ref x, value);
+                Set(ref x, value);
             }
         }
         private double y = 0;
