@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Marimo.RedRing.Model
 {
-    public interface I3DModel
+    public abstract class GeometryBase
     {
-        GeometryBase Geometry { get; }
     }
 }
