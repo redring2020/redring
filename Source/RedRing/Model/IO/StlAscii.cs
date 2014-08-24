@@ -40,9 +40,9 @@ namespace Marimo.RedRing.Model.IO
         /// <returns>成功したらTrue</returns>
         public static async Task<TriangleFacets> LoadAsync(string filePath)
         {
-            StreamReader sr = File.OpenText(filePath);
+            
 
-            try
+            using(var sr = File.OpenText(filePath))
             {
                 string line;
                 bool commentFlg = false;
@@ -154,11 +154,6 @@ namespace Marimo.RedRing.Model.IO
                 {
                     return null;
                 }
-            }
-            finally
-            {
-                if (sr != null)
-                    sr.Close();
             }
         }
     }
