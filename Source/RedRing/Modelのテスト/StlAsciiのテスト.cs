@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Marimo.RedRing.Model.IO;
 using NUnit.Framework;
 
 namespace Marimo.RedRing.Model.Test
@@ -11,10 +12,9 @@ namespace Marimo.RedRing.Model.Test
     public class StlAsciiのテスト : AssertionHelper
     {
         [Test]
-        public void Loadは適切なファイルの読み込み時にtrueを返す()
+        public async Task Loadは適切なファイルの読み込み時にポリゴンを返す()
         {
-            TriangleFacets triangleFaces;
-            Expect(IO.StlAscii.Load(@"..\..\..\..\..\SampleData\StlAscii\cube-ascii.stl", out triangleFaces));
+            Expect(await StlAscii.LoadAsync(@"..\..\..\..\..\SampleData\StlAscii\cube-ascii.stl"), Is.Not.Null);
         }
     }
 }

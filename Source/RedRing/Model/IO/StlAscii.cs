@@ -38,10 +38,8 @@ namespace Marimo.RedRing.Model.IO
         /// <param name="filePath">ファイルパス</param>
         /// <param name="triangleFacets">三角形ポリゴンデータ</param>
         /// <returns>成功したらTrue</returns>
-        public static bool Load(string filePath, out TriangleFacets triangleFacets)
+        public static async Task<TriangleFacets> LoadAsync(string filePath)
         {
-            triangleFacets = null;
-
             StreamReader sr = File.OpenText(filePath);
 
             try
@@ -57,7 +55,7 @@ namespace Marimo.RedRing.Model.IO
                 double value2 = double.NaN;
                 double value;
 
-                while ((line = sr.ReadLine()) != null)
+                while ((line = await sr.ReadLineAsync()) != null)
                 {
                     string[] tokens = line.Trim().Split(' ');
                     foreach (var token in tokens)
@@ -150,7 +148,11 @@ namespace Marimo.RedRing.Model.IO
 
                 if (vertices.Count >= 3 && vertexIndices.Count % 3 == 0 && vertexIndices.Count >= 3)
                 {
-                    triangleFacets = new TriangleFacets(vertices, vertexIndices);
+                    return new TriangleFacets(vertices, vertexIndices);
+                }
+                else
+                {
+                    return null;
                 }
             }
             finally
@@ -158,8 +160,6 @@ namespace Marimo.RedRing.Model.IO
                 if (sr != null)
                     sr.Close();
             }
-
-            return triangleFacets != null;
         }
     }
 }
