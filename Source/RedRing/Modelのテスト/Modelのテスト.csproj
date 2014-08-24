@@ -14,7 +14,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <StartAction>Program</StartAction>
-    <StartProgram>$(ProgramFiles)\NUnit 2.6.2\bin\nunit.exe</StartProgram>
+    <StartProgram>$(ProgramFiles)\NUnit 2.6.3\bin\nunit.exe</StartProgram>
     <StartArguments>/run</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
