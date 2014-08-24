@@ -8,10 +8,10 @@ using NUnit.Framework;
 namespace Marimo.RedRing.Model.Test
 {
     [TestFixture]
-    public class TestStlFileIO : AssertionHelper
+    public class StlAsciiのテスト : AssertionHelper
     {
         [Test]
-        public void StlAsciiLoad1()
+        public void Loadは適切なファイルの読み込み時にtrueを返す()
         {
             TriangleFacets triangleFaces;
             Expect(IO.StlAscii.Load(@"..\..\..\..\..\SampleData\StlAscii\cube-ascii.stl", out triangleFaces));
