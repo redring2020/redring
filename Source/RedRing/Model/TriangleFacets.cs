@@ -9,9 +9,9 @@ namespace Marimo.RedRing.Model
 {
     public class TriangleFacets : ObservableObject, I3DModel
     {
-        TriangleFacetsGeometry geometry;
+        Geometry geometry;
 
-        public GeometryBase Geometry
+        public Geometry Geometry
         {
             get { return geometry; }
         }
@@ -23,7 +23,7 @@ namespace Marimo.RedRing.Model
         /// <param name="vertexIndices">頂点インデックス</param>
         public TriangleFacets(IEnumerable<ベクトル> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
         {
-            geometry = new TriangleFacetsGeometry(vertices, vertexIndices);
+            geometry = new Geometry(vertices, vertexIndices);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Marimo.RedRing.Model
         /// <param name="vertexNormals">頂点の法線方向</param>
         public TriangleFacets(IEnumerable<ベクトル> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<ベクトル> vertexNormals)
         {
-            geometry = new TriangleFacetsGeometry(vertices, vertexIndices, vertexNormals);
+            geometry = new Geometry(vertices, vertexIndices, vertexNormals);
         }
     }
 }

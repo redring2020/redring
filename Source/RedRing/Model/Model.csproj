@@ -53,13 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeometryBase.cs" />
     <Compile Include="I3DModel.cs" />
     <Compile Include="IO\StlAscii.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TriangleFacetsGeometry.cs" />
     <Compile Include="ベクトル.cs" />
-    <Compile Include="立方体Geometry.cs" />
+    <Compile Include="Geometry.cs" />
     <Compile Include="TriangleFacets.cs" />
     <Compile Include="空間.cs" />
     <Compile Include="立方体.cs" />

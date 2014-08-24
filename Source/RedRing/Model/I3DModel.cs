@@ -8,6 +8,6 @@ namespace Marimo.RedRing.Model
 {
     public interface I3DModel
     {
-        GeometryBase Geometry { get; }
+        Geometry Geometry { get; }
     }
 }

@@ -49,63 +49,37 @@ namespace Marimo.RedRing.Wpf
 
                 group.Children.Add(
                     new DirectionalLight
-                    {
-                        Color = Colors.White,
-                        Direction = new Vector3D (0, -0.5, -0.6)
-                    });
+                {
+                    Color = Colors.White,
+                    Direction = new Vector3D(0, -0.5, -0.6)
+                });
 
-                if(DataContext == null)
+                if (DataContext == null)
                 {
                     return;
                 }
 
                 foreach (var 表示要素 in DataContext.表示モデル)
                 {
-                    if (表示要素.Geometry is 立方体Geometry)
-                    {
                     group.Children.Add(
-                        new GeometryModel3D
+                    new GeometryModel3D
                     {
                         Geometry =
-                        new MeshGeometry3D
+                    new MeshGeometry3D
                         {
                             Positions = new Point3DCollection(
-                                        from position in (表示要素.Geometry as 立方体Geometry).Positions
+                                from position in ((表示要素.Geometry as Model.Geometry)).Positions
                                 select new Point3D(position.X, position.Y, position.Z)),
                             TriangleIndices = new Int32Collection(
-                                        from triangleIndex in (表示要素.Geometry as 立方体Geometry).TriangleIndices
+                                from triangleIndex in ((表示要素.Geometry as Model.Geometry)).TriangleIndices
                                 from index in new[] { triangleIndex.Item1, triangleIndex.Item2, triangleIndex.Item3 }
-                                select index)
+                                select index),
+                            Normals = new Vector3DCollection()
                         },
                         Material = new DiffuseMaterial { Brush = new SolidColorBrush(Colors.Pink) }
 
                     }
-                        );
-                }
-                    else if (表示要素.Geometry is TriangleFacetsGeometry)
-                    {
-                        group.Children.Add(
-                            new GeometryModel3D
-                            {
-                                Geometry =
-                                new MeshGeometry3D
-                                {
-                                    Positions = new Point3DCollection(
-                                        from position in (表示要素.Geometry as TriangleFacetsGeometry).Vertices
-                                        select new Point3D(position.X, position.Y, position.Z)),
-                                    TriangleIndices = new Int32Collection(
-                                        from triangleIndex in (表示要素.Geometry as TriangleFacetsGeometry).VertexIndices
-                                        from index in new[] { triangleIndex.Item1, triangleIndex.Item2, triangleIndex.Item3 }
-                                        select index)
-                                },
-                                Material = new DiffuseMaterial { Brush = new SolidColorBrush(Colors.OliveDrab) }
-                            }
-                        );
-                    }
-                    else
-                    {
-                        throw new NotImplementedException("対応していない表示要素です。");
-                    }
+                    );
                 }
             };
         }
