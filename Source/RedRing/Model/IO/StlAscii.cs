@@ -109,7 +109,7 @@ namespace Marimo.RedRing.Model.IO
                                         case 2:
                                             vertices.Add(new ベクトル(value1, value2, value));
                                             int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
-                                            vertexIndices.Add(new Tuple<int, int, int>(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                                            vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
                                             break;
                                         default:
                                             throw new Exception("無効な値です。");
