@@ -8,7 +8,7 @@ using Marimo.RedRing.Model;
 
 namespace Marimo.RedRing.Model.IO
 {
-    public static class StlAscii
+    public static class StlFile
     {
         /// <summary>
         /// 値読み込み時の種類
