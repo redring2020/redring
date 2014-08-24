@@ -9,16 +9,16 @@ namespace Marimo.RedRing.Model
 {
     public class 空間
     {
-        public ObservableCollection<立方体> 表示モデル { get; private set; }
+        public ObservableCollection<I3DModel> 表示モデル { get; private set; }
 
         public 空間()
         {
-            表示モデル = new ObservableCollection<立方体>();
+            表示モデル = new ObservableCollection<I3DModel>();
         }
 
-        public void 立方体を追加する()
+        public void モデルを追加する(I3DModel モデル)
         {
-            表示モデル.Add(new 立方体 { });
+            表示モデル.Add(モデル);
         }
     }
 }

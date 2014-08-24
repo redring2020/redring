@@ -12,7 +12,7 @@ namespace Marimo.RedRing.ViewModel
         {
             モデル = new 空間();
 
-            立方体を追加する = new RelayCommand(() => モデル.立方体を追加する());
+            立方体を追加する = new RelayCommand(() => モデル.モデルを追加する(new 立方体()));
         }
 
         public RelayCommand 立方体を追加する { get;private set; }

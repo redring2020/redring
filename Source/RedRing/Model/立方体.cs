@@ -11,15 +11,15 @@ namespace Marimo.RedRing.Model
     {
         public ベクトル 位置 { get;  set; }
 
-        private Geometry geometry;
+        private 立方体Geometry geometry;
 
-        public Geometry Geometry
+        public GeometryBase Geometry
         {
             get
             {
                 if (geometry == null)
                 {
-                    geometry = new Geometry(
+                    geometry = new 立方体Geometry(
                         new[]
                         {
                             位置 + new ベクトル(1, 1, 1),

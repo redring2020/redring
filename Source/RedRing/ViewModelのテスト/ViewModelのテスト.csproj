@@ -7,7 +7,7 @@
     <ProjectGuid>{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Marimo.RedRing.ViewModel.Test</RootNamespace>
+    <RootNamespace>Marimo.RedRing.Model.Test</RootNamespace>
     <AssemblyName>Marimo.RedRing.ViewModel.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
