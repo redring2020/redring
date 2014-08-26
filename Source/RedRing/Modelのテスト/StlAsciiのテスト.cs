@@ -15,6 +15,8 @@ namespace Marimo.RedRing.Model.Test
         public async Task Loadは適切なファイルの読み込み時にポリゴンを返す()
         {
             Expect(await StlFile.LoadAsync(@"..\..\..\..\..\SampleData\StlAscii\cube-ascii.stl"), Is.Not.Null);
+
+            Expect(await StlFile.LoadAsync(@"..\..\..\..\..\SampleData\StlAscii\singleFacet-ascii.stl"), Is.Not.Null);
         }
     }
 }

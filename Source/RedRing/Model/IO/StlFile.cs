@@ -8,6 +8,9 @@ using Marimo.RedRing.Model;
 
 namespace Marimo.RedRing.Model.IO
 {
+    /// <summary>
+    /// STLファイルのIO処理を行うクラス
+    /// </summary>
     public static class StlFile
     {
         /// <summary>
@@ -36,12 +39,10 @@ namespace Marimo.RedRing.Model.IO
         /// todo:頂点共有の処理
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
-        /// <param name="triangleFacets">三角形ポリゴンデータ</param>
-        /// <returns>成功したらTrue</returns>
+        /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
         public static async Task<TriangleFacets> LoadAsync(string filePath)
         {
-            
-
+            // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
             {
                 string line;
@@ -55,13 +56,18 @@ namespace Marimo.RedRing.Model.IO
                 double value2 = double.NaN;
                 double value;
 
+                // 1行ずつ読み込む
                 while ((line = await sr.ReadLineAsync()) != null)
                 {
+                    // スペース区切りのトークンに分ける
                     string[] tokens = line.Trim().Split(' ');
                     foreach (var token in tokens)
                     {
+                        // トークンを小文字に変更する
                         lowerToken = token.ToLower();
 
+                        // トークンに対して然るべき処理を行う。
+                        // それなりに厳密に書式を見ていくことにする
                         if (lowerToken == "solid")
                         {
                             commentFlg = true;
@@ -146,7 +152,7 @@ namespace Marimo.RedRing.Model.IO
                     }
                 }
 
-                if (vertices.Count >= 3 && vertexIndices.Count % 3 == 0 && vertexIndices.Count >= 3)
+                if (vertices.Count >= 3 && vertexIndices.Count > 0)
                 {
                     return new TriangleFacets(vertices, vertexIndices);
                 }
