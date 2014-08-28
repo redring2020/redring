@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GalaSoft.MvvmLight.Messaging;
+using Marimo.RedRing.ViewModel;
+using Microsoft.Win32;
 
 namespace Marimo.RedRing.Wpf
 {
@@ -23,6 +26,17 @@ namespace Marimo.RedRing.Wpf
         public MainWindow()
         {
             InitializeComponent();
+
+            Messenger.Default.Register<FileOpenMessage>(this,
+                messge =>
+            {
+                var dialog = new OpenFileDialog { DefaultExt = "*.*" };
+
+                if (dialog.ShowDialog() == true)
+                {
+                    messge.CallBack(dialog.FileName);
+                }
+            });
         }
     }
 }

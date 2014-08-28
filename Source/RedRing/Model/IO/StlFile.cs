@@ -38,7 +38,7 @@ namespace Marimo.RedRing.Model.IO
         /// <param name="filePath">ファイルパス</param>
         /// <param name="triangleFacets">三角形ポリゴンデータ</param>
         /// <returns>成功したらTrue</returns>
-        public static async Task<TriangleFacets> LoadAsync(string filePath)
+        public static async Task<TriangleFaces> LoadAsync(string filePath)
         {
             
 
@@ -148,7 +148,7 @@ namespace Marimo.RedRing.Model.IO
 
                 if (vertices.Count >= 3 && vertexIndices.Count % 3 == 0 && vertexIndices.Count >= 3)
                 {
-                    return new TriangleFacets(vertices, vertexIndices);
+                    return new TriangleFaces(vertices, vertexIndices);
                 }
                 else
                 {

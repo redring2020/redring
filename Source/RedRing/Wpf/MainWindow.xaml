@@ -10,6 +10,11 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top">
+            <RibbonTab Header="ファイル">
+                <RibbonGroup Header="インポート">
+                    <RibbonButton Label="STL" Command="{Binding Stlファイルを読み込む, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
+                </RibbonGroup>
+            </RibbonTab>
             <RibbonTab Header="モデル">
               <RibbonGroup Header="追加">
                 <RibbonButton Label="立方体" Command="{Binding 立方体を追加する, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
@@ -20,6 +25,28 @@
             <ListBox.Resources>
                 <DataTemplate DataType="{x:Type model:立方体}">
                     <Grid d:DataContext="{d:DesignInstance Type=model:立方体}">
+                        <StackPanel DataContext="{Binding 位置}">
+                            <TextBlock>位置</TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>X:</TextBlock>
+                                <TextBox MinWidth="30" Text="{Binding X, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
+                                <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=X, Mode=TwoWay}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>X:</TextBlock>
+                                <TextBox MinWidth="30" Text="{Binding Y, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
+                                <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=Y, Mode=TwoWay}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>X:</TextBlock>
+                                <TextBox MinWidth="30" Text="{Binding Z, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
+                                <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=Z, Mode=TwoWay}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type model:TriangleFaces}">
+                    <Grid d:DataContext="{d:DesignInstance Type=model:TriangleFaces}">
                         <StackPanel DataContext="{Binding 位置}">
                             <TextBlock>位置</TextBlock>
                             <StackPanel Orientation="Horizontal">
