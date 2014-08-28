@@ -40,7 +40,7 @@ namespace Marimo.RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFacets> LoadAsync(string filePath)
+        public static async Task<TriangleFaces> LoadAsync(string filePath)
         {
             // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
