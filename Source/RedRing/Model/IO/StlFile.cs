@@ -40,7 +40,7 @@ namespace Marimo.RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFacets> LoadAsync(string filePath)
+        public static async Task<TriangleFaces> LoadAsync(string filePath)
         {
             // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
@@ -114,8 +114,12 @@ namespace Marimo.RedRing.Model.IO
                                             break;
                                         case 2:
                                             vertices.Add(new ベクトル(value1, value2, value));
-                                            int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
-                                            vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+
+                                            if (vertices.Count % 3 == 0)
+                                            {
+                                                int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
+                                                vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                                            }
                                             break;
                                         default:
                                             throw new Exception("無効な値です。");
