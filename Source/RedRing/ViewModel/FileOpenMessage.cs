@@ -14,6 +14,6 @@ namespace Marimo.RedRing.ViewModel
             CallBack = callback;
         }
 
-        public Func<string, Task> CallBack { get;private set; }
+        public Func<string, Task> CallBack { get; private set; }
     }
 }

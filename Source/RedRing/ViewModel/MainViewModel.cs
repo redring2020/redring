@@ -28,8 +28,8 @@ namespace Marimo.RedRing.ViewModel
                 });
         }
 
-        public RelayCommand 立方体を追加する { get;private set; }
+        public RelayCommand 立方体を追加する { get; private set; }
 
-        public RelayCommand Stlファイルを読み込む { get;private set; }
+        public RelayCommand Stlファイルを読み込む { get; private set; }
     }
 }

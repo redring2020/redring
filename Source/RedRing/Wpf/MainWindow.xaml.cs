@@ -28,13 +28,13 @@ namespace Marimo.RedRing.Wpf
             InitializeComponent();
 
             Messenger.Default.Register<FileOpenMessage>(this,
-                messge =>
+                message =>
             {
                 var dialog = new OpenFileDialog { DefaultExt = "*.*" };
 
                 if (dialog.ShowDialog() == true)
                 {
-                    messge.CallBack(dialog.FileName);
+                    message.CallBack(dialog.FileName);
                 }
             });
         }

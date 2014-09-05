@@ -77,7 +77,6 @@ namespace Marimo.RedRing.Wpf
                             Normals = new Vector3DCollection()
                         },
                         Material = new DiffuseMaterial { Brush = new SolidColorBrush(Colors.Pink) }
-
                     }
                     );
                 }

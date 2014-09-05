@@ -9,7 +9,7 @@ namespace Marimo.RedRing.Model
 {
     public class 立方体 : ObservableObject, I3DModel
     {
-        public ベクトル 位置 { get;  set; }
+        public ベクトル 位置 { get; set; }
 
         private Geometry geometry;
 

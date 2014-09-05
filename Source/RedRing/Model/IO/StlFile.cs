@@ -117,8 +117,8 @@ namespace Marimo.RedRing.Model.IO
 
                                             if (vertices.Count % 3 == 0)
                                             {
-                                            int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
-                                            vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                                                int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
+                                                vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
                                             }
                                             break;
                                         default:
