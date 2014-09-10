@@ -235,21 +235,31 @@ namespace Marimo.RedRing.Model.IO
                     var vertexIndices = new List<Tuple<int, int, int>>();
                     int lastIndex;
 
-                    for (int ii = 0; ii < facetCount; ii++)
+                    try
                     {
-                        // ファセットデータを読み込む
                         ptr = Marshal.AllocHGlobal(size);
-                        Marshal.Copy(br.ReadBytes(size), 0, ptr, size);
-                        var facet = (Facet)Marshal.PtrToStructure(ptr, typeof(Facet));
+                        for (int ii = 0; ii < facetCount; ii++)
+                        {
+                            // ファセットデータを読み込む
+                            Marshal.Copy(br.ReadBytes(size), 0, ptr, size);
+                            var facet = (Facet)Marshal.PtrToStructure(ptr, typeof(Facet));
 
-                        // 頂点を追加する
-                        vertices.Add(new ベクトル(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
-                        vertices.Add(new ベクトル(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
-                        vertices.Add(new ベクトル(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
+                            // 頂点を追加する
+                            vertices.Add(new ベクトル(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
+                            vertices.Add(new ベクトル(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
+                            vertices.Add(new ベクトル(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
 
-                        // 頂点インデックスを追加する
-                        lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
-                        vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                            // 頂点インデックスを追加する
+                            lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
+                            vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                        }
+                    }
+                    finally
+                    {
+                        if (ptr != IntPtr.Zero)
+                        {
+                            Marshal.FreeHGlobal(ptr);
+                        }
                     }
 
                     if (vertices.Count >= 3 && vertexIndices.Count > 0)
