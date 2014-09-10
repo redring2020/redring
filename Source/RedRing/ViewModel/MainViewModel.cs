@@ -17,19 +17,29 @@ namespace Marimo.RedRing.ViewModel
 
             立方体を追加する = new RelayCommand(() => モデル.モデルを追加する(new 立方体()));
 
-            Stlファイルを読み込む = new RelayCommand(
+            StlAsciiファイルを読み込む = new RelayCommand(
                 () => {
                     MessengerInstance.Send(
                         new FileOpenMessage(
                             async path =>
                     {
-                        モデル.モデルを追加する(await StlFile.LoadAsync(path));
+                        モデル.モデルを追加する(await StlFile.LoadAsciiAsync(path));
                     }));
                 });
+
+            StlBinaryファイルを読み込む = new RelayCommand(() =>
+            {
+                MessengerInstance.Send(new FileOpenMessage(async path =>
+                {
+                    モデル.モデルを追加する(await StlFile.LoadBinaryAsync(path));
+                }));
+            });
         }
 
         public RelayCommand 立方体を追加する { get; private set; }
 
-        public RelayCommand Stlファイルを読み込む { get; private set; }
+        public RelayCommand StlAsciiファイルを読み込む { get; private set; }
+
+        public RelayCommand StlBinaryファイルを読み込む { get; private set; }
     }
 }

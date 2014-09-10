@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StlAsciiのテスト.cs" />
+    <Compile Include="StlFileのテスト.cs" />
     <Compile Include="ベクトルのテスト.cs" />
   </ItemGroup>
   <ItemGroup>

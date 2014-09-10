@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using Marimo.RedRing.Model;
 
 namespace Marimo.RedRing.Model.IO
@@ -40,7 +43,7 @@ namespace Marimo.RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFaces> LoadAsync(string filePath)
+        public static async Task<TriangleFaces> LoadAsciiAsync(string filePath)
         {
             // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
@@ -55,6 +58,7 @@ namespace Marimo.RedRing.Model.IO
                 double value1 = double.NaN;
                 double value2 = double.NaN;
                 double value;
+                int lastIndex;
 
                 // 1行ずつ読み込む
                 while ((line = await sr.ReadLineAsync()) != null)
@@ -117,7 +121,7 @@ namespace Marimo.RedRing.Model.IO
 
                                             if (vertices.Count % 3 == 0)
                                             {
-                                                int lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
+                                                lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
                                                 vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
                                             }
                                             break;
@@ -164,6 +168,99 @@ namespace Marimo.RedRing.Model.IO
                 {
                     return null;
                 }
+            }
+        }
+
+        /// <summary>
+        /// ファセットを表す構造体
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        struct Facet
+        {
+            /// <summary>
+            /// 法線方向
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public float[] Normal;
+
+            /// <summary>
+            /// 1番目の頂点
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public float[] Vertex1;
+
+            /// <summary>
+            /// 2番目の頂点
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public float[] Vertex2;
+
+            /// <summary>
+            /// 3番目の頂点
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public float[] Vertex3;
+
+            /// <summary>
+            /// 未使用領域
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public byte[] Unused;
+        }
+
+        /// <summary>
+        /// STLバイナリファイルの読み込み
+        /// todo:頂点共有の処理
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
+        public static async Task<TriangleFaces> LoadBinaryAsync(string filePath)
+        {
+            // ファイルを開く
+            using (var br = new BinaryReader(File.OpenRead(filePath)))
+            {
+                return await Task.Run(() =>
+                {
+                    // コメント部を読み込む
+                    var comment = new byte[80];
+                    comment = br.ReadBytes(80);
+
+                    // 三角形の枚数を読み込む
+                    var facetCount = br.ReadUInt32();
+
+                    var size = Marshal.SizeOf(typeof(Facet));
+                    var ptr = IntPtr.Zero;
+
+                    var vertices = new List<ベクトル>();
+                    var vertexIndices = new List<Tuple<int, int, int>>();
+                    int lastIndex;
+
+                    for (int ii = 0; ii < facetCount; ii++)
+                    {
+                        // ファセットデータを読み込む
+                        ptr = Marshal.AllocHGlobal(size);
+                        Marshal.Copy(br.ReadBytes(size), 0, ptr, size);
+                        var facet = (Facet)Marshal.PtrToStructure(ptr, typeof(Facet));
+
+                        // 頂点を追加する
+                        vertices.Add(new ベクトル(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
+                        vertices.Add(new ベクトル(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
+                        vertices.Add(new ベクトル(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
+
+                        // 頂点インデックスを追加する
+                        lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
+                        vertexIndices.Add(Tuple.Create(lastIndex + 1, lastIndex + 2, lastIndex + 3));
+                    }
+
+                    if (vertices.Count >= 3 && vertexIndices.Count > 0)
+                    {
+                        return new TriangleFaces(vertices, vertexIndices);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                });
             }
         }
     }

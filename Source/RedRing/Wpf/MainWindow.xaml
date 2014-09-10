@@ -12,7 +12,8 @@
         <Ribbon DockPanel.Dock="Top">
             <RibbonTab Header="ファイル">
                 <RibbonGroup Header="インポート">
-                    <RibbonButton Label="STL" Command="{Binding Stlファイルを読み込む, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
+                    <RibbonButton Label="STLアスキー" Command="{Binding StlAsciiファイルを読み込む, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
+                    <RibbonButton Label="STLバイナリ" Command="{Binding StlBinaryファイルを読み込む, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="モデル">
