@@ -12,11 +12,22 @@ namespace Marimo.RedRing.Model.Test
     public class StlFileのテスト : AssertionHelper
     {
         [Test]
-        public async Task LoadAsciiAsyncは適切なファイルの読み込み時にポリゴンを返す()
+        public async Task LoadAsciiAsyncはポリゴンを読み込むことができる()
         {
-            Expect(await StlFile.LoadAsciiAsync(@"..\..\TestData\StlAscii\cube-ascii.stl"), Is.Not.Null);
+            var singleFacet = await StlFile.LoadAsciiAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl");
 
-            Expect(await StlFile.LoadAsciiAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl"), Is.Not.Null);
+            Expect(singleFacet.Geometry.TriangleIndices, Is.EquivalentTo(new[] { Tuple.Create(0, 1, 2) }));
+
+            Expect(singleFacet.Geometry.Positions.ElementAt(0).X, Is.EqualTo(0.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(0).Y, Is.EqualTo(0.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(0).Z, Is.EqualTo(10.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(1).X, Is.EqualTo(10.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(1).Y, Is.EqualTo(0.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(1).Z, Is.EqualTo(10.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(2).X, Is.EqualTo(0.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(2).Y, Is.EqualTo(10.0));
+            Expect(singleFacet.Geometry.Positions.ElementAt(2).Z, Is.EqualTo(10.0));
+
         }
 
         [Test]
