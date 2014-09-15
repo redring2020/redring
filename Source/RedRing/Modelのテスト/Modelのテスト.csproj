@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\StlAscii\cube-ascii.stl" />
+    <None Include="TestData\StlAscii\singleFacet-ascii.stl" />
+    <None Include="TestData\StlBinary\cube-binary.stl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
