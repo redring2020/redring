@@ -43,7 +43,7 @@ namespace Marimo.RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFaces> LoadAsciiAsync(string filePath)
+        static async Task<TriangleFaces> LoadAsciiAsync(string filePath)
         {
             // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
@@ -214,7 +214,7 @@ namespace Marimo.RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFaces> LoadBinaryAsync(string filePath)
+        static async Task<TriangleFaces> LoadBinaryAsync(string filePath)
         {
             // ファイルを開く
             using (var br = new BinaryReader(File.OpenRead(filePath)))
@@ -271,6 +271,47 @@ namespace Marimo.RedRing.Model.IO
                         return null;
                     }
                 });
+            }
+        }
+
+        /// <summary>
+        /// バイナリファイルか判定する
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        /// <returns>バイナリの場合True</returns>
+        static async Task<bool> IsBinaryAsync(string filePath)
+        {
+            // ファイルを開く
+            using (var br = new BinaryReader(File.OpenRead(filePath)))
+            {
+                return await Task.Run(() =>
+                {
+                    // コメント部分を飛ばす
+                    br.BaseStream.Seek(80, SeekOrigin.Begin);
+
+                    // ファセット数を読み取る
+                    var facetCount = br.ReadUInt32();
+
+                    // データ長がバイナリ形式と同じかチェックする
+                    return (facetCount * 50 + 84 == br.BaseStream.Length);
+                });
+            }
+        }
+
+        /// <summary>
+        /// STLファイルを読み込む
+        /// </summary>
+        /// <param name="filePath">ファイルパス</param>
+        /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
+        public static async Task<TriangleFaces> LoadAsync(string filePath)
+        {
+            if (await IsBinaryAsync(filePath))
+            {
+                return await LoadBinaryAsync(filePath);
+            }
+            else
+            {
+                return await LoadAsciiAsync(filePath);
             }
         }
     }

@@ -12,9 +12,9 @@ namespace Marimo.RedRing.Model.Test
     public class StlFileのテスト : AssertionHelper
     {
         [Test]
-        public async Task LoadAsciiAsyncはポリゴンを読み込むことができる()
+        public async Task LoadAsyncはアスキーSTLのポリゴンを読み込むことができる()
         {
-            var singleFacet = await StlFile.LoadAsciiAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl");
+            var singleFacet = await StlFile.LoadAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl");
 
             Expect(singleFacet.Geometry.TriangleIndices, Is.EquivalentTo(new[] { Tuple.Create(0, 1, 2) }));
 
@@ -31,9 +31,9 @@ namespace Marimo.RedRing.Model.Test
         }
 
         [Test]
-        public async Task LoadBinaryAsyncは適切なファイルの読み込み時にポリゴンを返す()
+        public async Task LoadAsyncはバイナリSTLの適切なファイルの読み込み時にポリゴンを返す()
         {
-            Expect(await StlFile.LoadBinaryAsync(@"..\..\TestData\StlBinary\cube-binary.stl"), Is.Not.Null);
+            Expect(await StlFile.LoadAsync(@"..\..\TestData\StlBinary\cube-binary.stl"), Is.Not.Null);
         }
     }
 }
