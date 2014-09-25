@@ -7,7 +7,8 @@
         xmlns:view="clr-namespace:Marimo.RedRing.Wpf"
         xmlns:model="clr-namespace:Marimo.RedRing.Model;assembly=Marimo.RedRing.Model"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:m="clr-namespace:System.Windows.Media.Imaging;assembly=PresentationCore"
+        Title="MainWindow" Height="350" Width="525" Icon="/Marimo.RedRing.Wpf;component/Resources/RedRing.ico">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top">
             <RibbonTab Header="ファイル">
