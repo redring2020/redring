@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ベクトル表示.xaml.cs">
+      <DependentUpon>ベクトル表示.xaml</DependentUpon>
+    </Compile>
     <Compile Include="モデル表示領域.xaml.cs">
       <DependentUpon>モデル表示領域.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ベクトル表示.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="モデル表示領域.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
