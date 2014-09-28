@@ -38,5 +38,10 @@ namespace Marimo.RedRing.Wpf
                 }
             });
         }
+
+        private void Ribbon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

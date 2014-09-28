@@ -56,9 +56,11 @@
     <Compile Include="I3DModel.cs" />
     <Compile Include="IO\StlFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="カメラ.cs" />
     <Compile Include="ベクトル.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="TriangleFaces.cs" />
+    <Compile Include="位置ベクトル.cs" />
     <Compile Include="空間.cs" />
     <Compile Include="立方体.cs" />
   </ItemGroup>

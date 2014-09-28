@@ -10,7 +10,7 @@
         xmlns:m="clr-namespace:System.Windows.Media.Imaging;assembly=PresentationCore"
         Title="MainWindow" Height="350" Width="525" Icon="/Marimo.RedRing.Wpf;component/Resources/RedRing.ico">
     <DockPanel>
-        <Ribbon DockPanel.Dock="Top">
+        <Ribbon DockPanel.Dock="Top" SelectionChanged="Ribbon_SelectionChanged">
             <RibbonTab Header="ファイル">
                 <RibbonGroup Header="インポート">
                     <RibbonButton Label="STL" Command="{Binding Stlファイルを読み込む, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
@@ -20,6 +20,12 @@
               <RibbonGroup Header="追加">
                 <RibbonButton Label="立方体" Command="{Binding 立方体を追加する, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
               </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="カメラ">
+                <RibbonGroup Header="状態">
+                    <view:ベクトル表示 Header="位置" Source="{Binding モデル.カメラ.位置}"/>
+                    <view:ベクトル表示 Header="方向" Source="{Binding モデル.カメラ.方向}"/>
+                </RibbonGroup>
             </RibbonTab>
         </Ribbon>
         <ListBox DockPanel.Dock="Right" ItemsSource="{Binding モデル.表示モデル}">

@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ToViewConverter.cs" />
     <Compile Include="ベクトル表示.xaml.cs">
       <DependentUpon>ベクトル表示.xaml</DependentUpon>
     </Compile>

@@ -12,17 +12,17 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock>X:</TextBlock>
             <TextBox MinWidth="30" Text="{Binding X, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
-            <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=X}"/>
+            <Slider MinWidth="100" Maximum="100" Minimum="-100" Value="{Binding Path=X}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock>X:</TextBlock>
+            <TextBlock>Y:</TextBlock>
             <TextBox MinWidth="30" Text="{Binding Y, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
-            <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=Y}"/>
+            <Slider MinWidth="100" Maximum="100" Minimum="-100" Value="{Binding Path=Y}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock>X:</TextBlock>
+            <TextBlock>Z:</TextBlock>
             <TextBox MinWidth="30" Text="{Binding Z, Mode=TwoWay, StringFormat=\{0:F0\}}"/>
-            <Slider MinWidth="100" Minimum="-10" Value="{Binding Path=Z}"/>
+            <Slider MinWidth="100" Maximum="100" Minimum="-100" Value="{Binding Path=Z}"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
