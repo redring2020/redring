@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 
-namespace Marimo.RedRing.Model
+namespace RedRing.Model
 {
     public class カメラ : ObservableObject
     {

@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using Marimo.RedRing.Model;
 
-namespace Marimo.RedRing.Model.IO
+namespace RedRing.Model.IO
 {
     /// <summary>
     /// STLファイルのIO処理を行うクラス

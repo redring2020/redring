@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Marimo.RedRing.Model.IO;
+using RedRing.Model.IO;
 using NUnit.Framework;
 
-namespace Marimo.RedRing.Model.Test
+namespace RedRing.Model.Test
 {
     [TestFixture]
     public class StlFileのテスト : AssertionHelper

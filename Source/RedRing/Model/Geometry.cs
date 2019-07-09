@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Marimo.RedRing.Model
+namespace RedRing.Model
 {
     public class Geometry
     {

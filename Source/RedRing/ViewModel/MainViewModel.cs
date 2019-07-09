@@ -1,10 +1,10 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using Marimo.RedRing.Model;
-using Marimo.RedRing.Model.IO;
+using RedRing.Model;
+using RedRing.Model.IO;
 
-namespace Marimo.RedRing.ViewModel
+namespace RedRing.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {

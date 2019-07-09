@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-            xmlns:model="clr-namespace:Marimo.RedRing.Model;assembly=Marimo.RedRing.Model"
-             xmlns:local="clr-namespace:Marimo.RedRing.Wpf" x:Class="Marimo.RedRing.Wpf.モデル表示領域"
+            xmlns:model="clr-namespace:RedRing.Model;assembly=RedRing.Model"
+             xmlns:local="clr-namespace:RedRing.Wpf" x:Class="RedRing.Wpf.モデル表示領域"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="Viewport3D_Loaded"
             d:DataContext="{d:DesignInstance Type={x:Type model:空間}}">

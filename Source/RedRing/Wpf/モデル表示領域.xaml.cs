@@ -15,9 +15,9 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Marimo.RedRing.Model;
+using RedRing.Model;
 
-namespace Marimo.RedRing.Wpf
+namespace RedRing.Wpf
 {
     /// <summary>
     /// モデル表示領域.xaml の相互作用ロジック

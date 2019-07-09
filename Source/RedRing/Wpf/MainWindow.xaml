@@ -1,14 +1,14 @@
-﻿<Window x:Class="Marimo.RedRing.Wpf.MainWindow"
+﻿<Window x:Class="RedRing.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d" 
-        xmlns:view="clr-namespace:Marimo.RedRing.Wpf"
-        xmlns:model="clr-namespace:Marimo.RedRing.Model;assembly=Marimo.RedRing.Model"
+        xmlns:view="clr-namespace:RedRing.Wpf"
+        xmlns:model="clr-namespace:RedRing.Model;assembly=RedRing.Model"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
         xmlns:m="clr-namespace:System.Windows.Media.Imaging;assembly=PresentationCore"
-        Title="MainWindow" Height="350" Width="525" Icon="/Marimo.RedRing.Wpf;component/Resources/RedRing.ico">
+        Title="MainWindow" Height="350" Width="525" Icon="/RedRing.Wpf;component/Resources/RedRing.ico">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top" SelectionChanged="Ribbon_SelectionChanged">
             <RibbonTab Header="ファイル">
