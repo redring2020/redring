@@ -45,7 +45,6 @@ build/
 *.pidb
 *.log
 *.scc
-*.vs
 
 # Visual C++ cache files
 ipch/
@@ -158,3 +157,6 @@ $RECYCLE.BIN/
 
 # Roslyn
 *.sln.ide
+
+*.vs
+*.nuget
