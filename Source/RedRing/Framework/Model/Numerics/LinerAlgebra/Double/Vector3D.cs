@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RedRing.Common.Numerics.LinerAlgebra.Double
+namespace RedRing.Framework.Model.Numerics.LinerAlgebra.Double
 {
     /// <summary>
     /// 3次元ベクトル
@@ -34,7 +30,7 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         {
             get
             {
-                return Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2);
+                return X * X + Y * Y + Z * Z;
             }
         }
 
@@ -52,9 +48,9 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
+        /// <param name="x">X座標値</param>
+        /// <param name="y">Y座標値</param>
+        /// <param name="z">Z座標値</param>
         public Vector3D(double x, double y, double z)
         {
             X = x;
@@ -100,125 +96,133 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         /// <summary>
         /// 2つのベクトルが等しいか判断する
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>値が等しい場合にはtrue</returns>
-        public static bool Equals(Vector3D v1, Vector3D v2) =>
-            v1.Equals(v2);
+        public static bool Equals(Vector3D left, Vector3D right) =>
+            left.Equals(right);
 
         /// <summary>
         /// ハッシュコードを取得する
         /// </summary>
         /// <returns>ハッシュコード</returns>
         public override int GetHashCode() =>
-            VectorHashCode<double>.GetHashCode3D(X, Y, Z);
+            VectorHashCode<double>.GetHashCode3(X, Y, Z);
 
         /// <summary>
         /// 2つのベクトルの値が等しいか判断する
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>値が等しい場合にはtrue</returns>
-        public static bool operator ==(Vector3D v1, Vector3D v2) =>
-            v1.Equals(v2);
+        public static bool operator ==(Vector3D left, Vector3D right) =>
+            left.Equals(right);
 
         /// <summary>
         /// 2つのベクトルの値が異なるか判断する
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>値が異なる場合にはtrue</returns>
-        public static bool operator !=(Vector3D v1, Vector3D v2) =>
-            !v1.Equals(v2);
+        public static bool operator !=(Vector3D left, Vector3D right) =>
+            !left.Equals(right);
 
         /// <summary>
         /// 単項マイナス
         /// </summary>
-        /// <param name="v">ベクトル</param>
+        /// <param name="vector3D">ベクトル</param>
         /// <returns>マイナスベクトル</returns>
-        public static Vector3D operator -(Vector3D v) =>
-            new Vector3D(-v.X, -v.Y, -v.Z);
+        public static Vector3D operator -(Vector3D vector3D) =>
+            new Vector3D(-vector3D.X, -vector3D.Y, -vector3D.Z);
 
         /// <summary>
         /// ベクトルの足し算
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>足し算されたベクトル</returns>
-        public static Vector3D Add(Vector3D v1, Vector3D v2) =>
-            new Vector3D(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
+        public static Vector3D operator +(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
 
         /// <summary>
         /// ベクトルの足し算
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>足し算されたベクトル</returns>
-        public static Vector3D operator +(Vector3D v1, Vector3D v2) =>
-            Add(v1, v2);
+        public static Vector3D Add(Vector3D left, Vector3D right)
+        {
+            return left + right;
+        }
 
         /// <summary>
         /// ベクトルの引き算
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>引き算されたベクトル</returns>
-        public static Vector3D Subtract(Vector3D v1, Vector3D v2) =>
-            new Vector3D(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
+        public static Vector3D operator -(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
 
         /// <summary>
         /// ベクトルの引き算
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">1番目から引くベクトル</param>
         /// <returns>引き算されたベクトル</returns>
-        public static Vector3D operator -(Vector3D v1, Vector3D v2) =>
-            Subtract(v1, v2);
+        public static Vector3D Subtract(Vector3D left, Vector3D right)
+        {
+            return left - right;
+        }
 
         /// <summary>
         /// スカラーとベクトルの掛け算
         /// </summary>
         /// <param name="scalar">スカラー</param>
-        /// <param name="v">ベクトル</param>
+        /// <param name="vector3D">ベクトル</param>
         /// <returns>掛け算されたベクトル</returns>
-        public static Vector3D Multiply(double scalar, Vector3D v) =>
-            new Vector3D(scalar * v.X, scalar * v.Y, scalar * v.Z);
+        public static Vector3D operator *(double scalar, Vector3D vector3D)
+        {
+            return scalar * vector3D;
+        }
+
+        /// <summary>
+        /// スカラーとベクトルの掛け算
+        /// </summary>
+        /// <param name="scalar">スカラー</param>
+        /// <param name="vector3D">ベクトル</param>
+        /// <returns>掛け算されたベクトル</returns>
+        public static Vector3D Multiply(double scalar, Vector3D vector3D) =>
+            new Vector3D(scalar * vector3D.X, scalar * vector3D.Y, scalar * vector3D.Z);
 
         /// <summary>
         /// ベクトルとスカラーの掛け算
         /// </summary>
-        /// <param name="v">ベクトル</param>
+        /// <param name="vector3D">ベクトル</param>
         /// <param name="scalar">スカラー</param>
         /// <returns>掛け算されたベクトル</returns>
-        public static Vector3D Multiply(Vector3D v, double scalar) =>
-            Multiply(scalar, v);
-
-        /// <summary>
-        /// スカラーとベクトルの掛け算
-        /// </summary>
-        /// <param name="scalar">スカラー</param>
-        /// <param name="v">ベクトル</param>
-        /// <returns>掛け算されたベクトル</returns>
-        public static Vector3D operator *(double scalar, Vector3D v) =>
-            Multiply(scalar, v);
+        public static Vector3D Multiply(Vector3D vector3D, double scalar) =>
+            Multiply(vector3D, scalar);
 
         /// <summary>
         /// ベクトルとスカラーの割り算
         /// </summary>
-        /// <param name="v">ベクトル</param>
+        /// <param name="vector">ベクトル</param>
         /// <param name="scalar">スカラー</param>
         /// <returns>割り算されたベクトル</returns>
-        public static Vector3D Divide(Vector3D v, double scalar) =>
-            new Vector3D(v.X / scalar, v.Y / scalar, v.Z / scalar);
+        public static Vector3D operator /(Vector3D vector3D, double scalar) =>
+            new Vector3D(vector3D.X / scalar, vector3D.Y / scalar, vector3D.Z / scalar);
 
         /// <summary>
         /// ベクトルとスカラーの割り算
         /// </summary>
-        /// <param name="v">ベクトル</param>
+        /// <param name="vector3d">ベクトル</param>
         /// <param name="scalar">スカラー</param>
         /// <returns>割り算されたベクトル</returns>
-        public static Vector3D operator /(Vector3D v, double scalar) =>
-            Divide(v, scalar);
+        public static Vector3D Divide(Vector3D vector3d, double scalar)
+        {
+            return vector3d / scalar;
+        }
 
         /// <summary>
         /// ベクトルを反転する
@@ -233,25 +237,29 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         /// <summary>
         /// ベクトルを正規化する
         /// </summary>
-        public void Normalize() =>
+        public void Normalize()
+        {
             this /= Length;
+        }
 
         /// <summary>
         /// ベクトルの内積を計算する
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>内積</returns>
-        public static double DotProduct(Vector3D v1, Vector3D v2) =>
-            v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
+        public static double DotProduct(Vector3D left, Vector3D right)
+        {
+            return left.X * right.X + left.Y * right.Y + left.Z * right.Z;
+        }
 
         /// <summary>
         /// ベクトルの外積を計算する
         /// </summary>
-        /// <param name="v1">ベクトル</param>
-        /// <param name="v2">ベクトル</param>
+        /// <param name="left">1番目のベクトル</param>
+        /// <param name="right">2番目のベクトル</param>
         /// <returns>外積されたベクトル</returns>
-        public static Vector3D CrossProduct(Vector3D v1, Vector3D v2) =>
-            new Vector3D(v1.Y * v2.Z - v1.Z * v2.Y, v1.Z * v2.X - v1.X * v2.Z, v1.X * v2.Y - v1.Y * v2.X);
+        public static Vector3D CrossProduct(Vector3D left, Vector3D right) =>
+            new Vector3D(left.Y * right.Z - left.Z * right.Y, left.Z * right.X - left.X * right.Z, left.X * right.Y - left.Y * right.X);
     }
 }

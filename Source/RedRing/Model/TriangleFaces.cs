@@ -19,8 +19,8 @@ namespace RedRing.Model
                 if (geometry == null)
                 {
                     geometry = new Geometry(
-                    from giometory in originalGeometry.Positions
-                    select 位置 + giometory,
+                    from newGeometory in originalGeometry.Positions
+                    select 位置 + newGeometory,
                     originalGeometry.TriangleIndices);
                 }
                 return geometry;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RedRing.Common.Numerics.LinerAlgebra.Double
+namespace RedRing.Framework.Model.Numerics.LinerAlgebra.Double
 {
     /// <summary>
     /// 3次元座標
@@ -85,7 +85,7 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         /// </summary>
         /// <returns>ハッシュコード</returns>
         public override int GetHashCode() =>
-            VectorHashCode<double>.GetHashCode3D(X, Y, Z);
+            VectorHashCode<double>.GetHashCode3(X, Y, Z);
 
         /// <summary>
         /// 2つのポイントの値が等しいか判断する

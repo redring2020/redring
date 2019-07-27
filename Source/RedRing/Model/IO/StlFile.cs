@@ -10,7 +10,7 @@ namespace RedRing.Model.IO
     /// <summary>
     /// STLファイルのIO処理を行うクラス
     /// </summary>
-    public static class StlFile
+    public static class STLFile
     {
         /// <summary>
         /// 値読み込み時の種類

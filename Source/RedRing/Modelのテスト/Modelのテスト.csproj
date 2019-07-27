@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StlFileのテスト.cs" />
+    <Compile Include="STLFileのテスト.cs" />
     <Compile Include="ベクトルのテスト.cs" />
   </ItemGroup>
   <ItemGroup>

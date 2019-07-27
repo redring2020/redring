@@ -7,12 +7,12 @@ using NUnit.Framework;
 namespace RedRing.Model.Test
 {
     [TestFixture]
-    public class StlFileのテスト : AssertionHelper
+    public class STLFileのテスト : AssertionHelper
     {
         [Test]
         public async Task LoadAsyncはアスキーSTLのポリゴンを読み込むことができる()
         {
-            var singleFacet = await StlFile.LoadAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl");
+            var singleFacet = await STLFile.LoadAsync(@"..\..\TestData\StlAscii\singleFacet-ascii.stl");
 
             Expect(singleFacet.Geometry.TriangleIndices, Is.EquivalentTo(new[] { Tuple.Create(0, 1, 2) }));
 
@@ -31,7 +31,7 @@ namespace RedRing.Model.Test
         [Test]
         public async Task LoadAsyncはバイナリSTLの適切なファイルの読み込み時にポリゴンを返す()
         {
-            Expect(await StlFile.LoadAsync(@"..\..\TestData\StlBinary\cube-binary.stl"), Is.Not.Null);
+            Expect(await STLFile.LoadAsync(@"..\..\TestData\StlBinary\cube-binary.stl"), Is.Not.Null);
         }
     }
 }
