@@ -1,4 +1,4 @@
-﻿namespace RedRing.Framework.Model.Geometry.Double._3D
+﻿namespace RedRing.Framework.Model.Geometry.Double.Geometry3D
 {
     /// <summary>
     /// 円
@@ -6,9 +6,9 @@
     public struct Circle : IGeometry, ICurve, I3D
     {
         /// <summary>
-        /// 中心, 平面法線, t = 0への方向
+        /// 配置位置
         /// </summary>
-        public Axis2 BasisSet { get; }
+        public Axis Position { get; }
 
         /// <summary>
         /// 半径
@@ -18,11 +18,11 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="basisSet">配置座標</param>
+        /// <param name="position">配置位置</param>
         /// <param name="radius">半径</param>
-        public Circle(Axis2 basisSet, double radius)
+        public Circle(Axis position, double radius)
         {
-            BasisSet = basisSet;
+            Position = position;
             Radius = radius;
         }
     }

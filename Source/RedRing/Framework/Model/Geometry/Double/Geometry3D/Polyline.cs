@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace RedRing.Framework.Model.Geometry.Double._3D
+namespace RedRing.Framework.Model.Geometry.Double.Geometry3D
 {
     /// <summary>
     /// 折れ線

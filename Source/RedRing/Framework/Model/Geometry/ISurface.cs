@@ -1,9 +1,9 @@
 ﻿namespace RedRing.Framework.Model.Geometry
 {
     /// <summary>
-    /// 点インターフェース
+    /// 面インターフェース
     /// </summary>
-    internal interface IPoint
+    internal interface ISurface
     {
     }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5641B236-FDB0-4F27-A031-8451DF530340}</ProjectGuid>
+    <ProjectGuid>{75837C4D-6332-44DD-AFED-18C0C10169C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RedRing.Framework.Model.Geometry</RootNamespace>
-    <AssemblyName>RedRing.Framework.Model.Geometry</AssemblyName>
+    <RootNamespace>RedRing.Framework.Model.Topology</RootNamespace>
+    <AssemblyName>RedRing.Framework.Model.Topology</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,33 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Double\Geometry3D\Axis.cs" />
-    <Compile Include="Double\Geometry3D\Circle.cs" />
-    <Compile Include="Double\Geometry3D\Conic.cs" />
-    <Compile Include="Double\Geometry3D\Cylinder.cs" />
-    <Compile Include="Double\Geometry3D\Ellipse.cs" />
-    <Compile Include="Double\Geometry3D\Line.cs" />
-    <Compile Include="Double\Geometry3D\NurbsCurve.cs" />
-    <Compile Include="Double\Geometry3D\NurbsSurface.cs" />
-    <Compile Include="Double\Geometry3D\Plane.cs" />
-    <Compile Include="Double\Geometry3D\Point.cs" />
-    <Compile Include="Double\Geometry3D\Polyline.cs" />
-    <Compile Include="Double\Geometry3D\Sphere.cs" />
-    <Compile Include="Double\Geometry3D\Torus.cs" />
-    <Compile Include="Double\Geometry3D\Vector.cs" />
-    <Compile Include="I3D.cs" />
-    <Compile Include="ICurve.cs" />
-    <Compile Include="IGeometry.cs" />
-    <Compile Include="IPlacement.cs" />
-    <Compile Include="IPoint.cs" />
-    <Compile Include="ISurface.cs" />
-    <Compile Include="IVector.cs" />
+    <Compile Include="Face.cs" />
+    <Compile Include="Halfedge.cs" />
+    <Compile Include="Vertex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Numerics\Numerics.csproj">
-      <Project>{fc12f60c-14ec-4b13-b661-8110d3234fc0}</Project>
-      <Name>Numerics</Name>
+    <ProjectReference Include="..\Geometry\Geometry.csproj">
+      <Project>{5641b236-fdb0-4f27-a031-8451df530340}</Project>
+      <Name>Geometry</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,9 @@
-﻿namespace RedRing.Framework.Model.Geometry.Double._3D
+﻿namespace RedRing.Framework.Model.Geometry.Double.Geometry3D
 {
     /// <summary>
-    /// 2軸配置
+    /// 配置
     /// </summary>
-    public struct Axis2 : IGeometry, IPlacement, I3D
+    public struct Axis : IGeometry, IPlacement, I3D
     {
         /// <summary>
         /// 配置位置
@@ -13,7 +13,7 @@
         /// <summary>
         /// Z軸の方向
         /// </summary>
-        public Vector Axis { get; }
+        public Vector ZAxis { get; }
 
         /// <summary>
         /// X軸の方向
@@ -24,12 +24,12 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="location">配置位置</param>
-        /// <param name="axis">Z軸の方向</param>
+        /// <param name="zAxis">Z軸の方向</param>
         /// <param name="refDirection">X軸の方向</param>
-        public Axis2(Point location, Vector axis, Vector refDirection)
+        public Axis(Point location, Vector zAxis, Vector refDirection)
         {
             Location = location;
-            Axis = axis;
+            ZAxis = zAxis;
             RefDirection = refDirection;
         }
 
@@ -37,10 +37,10 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="location">配置位置</param>
-        public Axis2(Point location)
+        public Axis(Point location)
         {
             Location = location;
-            Axis = new Vector(0.0, 0.0, 1.0);
+            ZAxis = new Vector(0.0, 0.0, 1.0);
             RefDirection = new Vector(1.0, 0.0, 0.0);
         }
     }

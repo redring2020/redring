@@ -1,6 +1,9 @@
 ﻿namespace RedRing.Framework.Model.Geometry
 {
-    public interface IPlacement
+    /// <summary>
+    /// 配置インターフェース
+    /// </summary>
+    internal interface IPlacement
     {
     }
 }

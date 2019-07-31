@@ -1,4 +1,4 @@
-﻿namespace RedRing.Framework.Model.Geometry.Double._3D
+﻿namespace RedRing.Framework.Model.Geometry.Double.Geometry3D
 {
     /// <summary>
     /// 楕円
@@ -8,7 +8,7 @@
         /// <summary>
         /// 配置位置
         /// </summary>
-        public Axis2 Position { get; }
+        public Axis Position { get; }
 
         /// <summary>
         /// X軸方向半径
@@ -26,7 +26,7 @@
         /// <param name="position">配置位置</param>
         /// <param name="r1">X軸方向半径</param>
         /// <param name="r2">Y軸方向半径</param>
-        public Ellipse(Axis2 position, double r1, double r2)
+        public Ellipse(Axis position, double r1, double r2)
         {
             Position = position;
             R1 = r1;

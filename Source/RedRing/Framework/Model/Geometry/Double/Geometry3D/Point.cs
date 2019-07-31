@@ -1,6 +1,6 @@
-﻿using RedRing.Framework.Model.Numerics.LinerAlgebra.Double;
+﻿using RedRing.Framework.Numerics.LinerAlgebra.Double;
 
-namespace RedRing.Framework.Model.Geometry.Double._3D
+namespace RedRing.Framework.Model.Geometry.Double.Geometry3D
 {
     /// <summary>
     /// 座標点
@@ -15,17 +15,17 @@ namespace RedRing.Framework.Model.Geometry.Double._3D
         /// <summary>
         /// X座標値
         /// </summary>
-        public double X { get { return Position.X; } }
+        public double X => Position.X;
 
         /// <summary>
         /// Y座標値
         /// </summary>
-        public double Y { get { return Position.Y; } }
+        public double Y => Position.Y;
 
         /// <summary>
         /// Z座標値
         /// </summary>
-        public double Z { get { return Position.Z; } }
+        public double Z => Position.Z;
 
         /// <summary>
         /// コンストラクタ
