@@ -37,23 +37,6 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         }
 
         /// <summary>
-        /// 原点を取得する
-        /// </summary>
-        /// <returns></returns>
-        public static Point3D GetOrigin() =>
-            new Point3D(0.0, 0.0, 0.0);
-
-        /// <summary>
-        /// 原点にする
-        /// </summary>
-        public void Origin()
-        {
-            X = 0.0;
-            Y = 0.0;
-            Z = 0.0;
-        }
-
-        /// <summary>
         /// ポイントからベクトルに変換する
         /// </summary>
         /// <param name="p">ポイント</param>

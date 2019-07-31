@@ -11,12 +11,10 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         /// X座標値
         /// </summary>
         public double X { get; set; }
-
         /// <summary>
         /// Y座標値
         /// </summary>
         public double Y { get; set; }
-
         /// <summary>
         /// Z座標値
         /// </summary>

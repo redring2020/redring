@@ -26,17 +26,24 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         /// <summary>
         /// 長さの2乗
         /// </summary>
-        public double LengthSquared => X * X + Y * Y + Z * Z;
+        public double LengthSquared
+        {
+            get
+            {
+                return X * X + Y * Y + Z * Z;
+            }
+        }
 
         /// <summary>
         /// 長さ
         /// </summary>
-        public double Length => Math.Sqrt(LengthSquared);
-
-        /// <summary>
-        /// 正規化されているか否か
-        /// </summary>
-        public bool IsNormal;
+        public double Length
+        {
+            get
+            {
+                return Math.Sqrt(LengthSquared);
+            }
+        }
 
         /// <summary>
         /// コンストラクタ
@@ -49,81 +56,6 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
             X = x;
             Y = y;
             Z = z;
-            IsNormal = false;
-        }
-
-        /// <summary>
-        /// X軸単項ベクトルを取得する
-        /// </summary>
-        /// <returns></returns>
-        public static Vector3D GetXAxis()
-        {
-            var vector = new Vector3D(1.0, 0.0, 0.0)
-            {
-                IsNormal = true
-            };
-
-            return vector;
-        }
-
-        /// <summary>
-        /// X軸単項ベクトルにする
-        /// </summary>
-        public void XAxis()
-        {
-            X = 1.0;
-            Y = 0.0;
-            Z = 0.0;
-        }
-
-        /// <summary>
-        /// Y軸単項ベクトルを取得する
-        /// </summary>
-        /// <returns></returns>
-        public static Vector3D GetYAxis()
-        {
-            var vector = new Vector3D(0.0, 1.0, 0.0)
-            {
-                IsNormal = true
-            };
-
-            return vector;
-        }
-
-        /// <summary>
-        /// Y軸単項ベクトルにする
-        /// </summary>
-        public void YAxis()
-        {
-            X = 0.0;
-            Y = 1.0;
-            Z = 0.0;
-            IsNormal = true;
-        }
-
-        /// <summary>
-        /// Z軸単項ベクトルを取得する
-        /// </summary>
-        /// <returns></returns>
-        public static Vector3D GetZAxis()
-        {
-            var vector = new Vector3D(0.0, 0.0, 1.0)
-            {
-                IsNormal = true
-            };
-
-            return vector;
-        }
-
-        /// <summary>
-        /// Z軸単項ベクトルにする
-        /// </summary>
-        public void ZAxis()
-        {
-            X = 0.0;
-            Y = 0.0;
-            Z = 1.0;
-            IsNormal = true;
         }
 
         /// <summary>
@@ -200,16 +132,8 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         /// </summary>
         /// <param name="vector3D">ベクトル</param>
         /// <returns>マイナスベクトル</returns>
-        public static Vector3D operator -(Vector3D vector3D)
-        {
-            var vector = new Vector3D(-vector3D.X, -vector3D.Y, -vector3D.Z);
-            if (vector3D.IsNormal == true)
-            {
-                vector.IsNormal = true;
-            }
-
-            return vector;
-        }
+        public static Vector3D operator -(Vector3D vector3D) =>
+            new Vector3D(-vector3D.X, -vector3D.Y, -vector3D.Z);
 
         /// <summary>
         /// ベクトルの足し算
@@ -316,7 +240,6 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         public void Normalize()
         {
             this /= Length;
-            IsNormal = true;
         }
 
         /// <summary>
@@ -338,5 +261,26 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         /// <returns>外積されたベクトル</returns>
         public static Vector3D CrossProduct(Vector3D left, Vector3D right) =>
             new Vector3D(left.Y * right.Z - left.Z * right.Y, left.Z * right.X - left.X * right.Z, left.X * right.Y - left.Y * right.X);
+
+        /// <summary>
+        /// X軸平行ベクトルの取得
+        /// </summary>
+        /// <returns>X軸平行ベクトル</returns>
+        public static Vector3D GetXAxis() =>
+            new Vector3D(1.0, 0.0, 0.0);
+
+        /// <summary>
+        /// Y軸平行ベクトルの取得
+        /// </summary>
+        /// <returns>Y軸平行ベクトル</returns>
+        public static Vector3D GetYAxis() =>
+            new Vector3D(0.0, 1.0, 0.0);
+
+        /// <summary>
+        /// Z軸平行ベクトルの取得
+        /// </summary>
+        /// <returns>Z軸平行ベクトル</returns>
+        public static Vector3D GetZAxis() =>
+            new Vector3D(0.0, 0.0, 1.0);
     }
 }

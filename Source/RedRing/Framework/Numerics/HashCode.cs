@@ -23,8 +23,7 @@
         /// <param name="y">Y座標値</param>
         /// <param name="z">Z座標値</param>
         /// <returns>ハッシュコード</returns>
-        public static int GetHashCode3(T x, T y, T z) =>
-            HashVal1 + x.GetHashCode() * HashVal2 + y.GetHashCode() * HashVal2 + z.GetHashCode() * HashVal2;
+        public static int GetHashCode3(T x, T y, T z) => ((HashVal1 * HashVal2 + x.GetHashCode()) * HashVal2 + y.GetHashCode()) * HashVal2 + z.GetHashCode() * HashVal2;
 
         /// <summary>
         /// 4次元のハッシュコードを取得する
@@ -34,7 +33,6 @@
         /// <param name="z">Z座標値</param>
         /// <param name="w">W座標値</param>
         /// <returns>ハッシュコード</returns>
-        public static int GetHashCode4(T x, T y, T z, T w) =>
-            HashVal1 + x.GetHashCode() * HashVal2 + y.GetHashCode() * HashVal2 + z.GetHashCode() * HashVal2 + w.GetHashCode() * HashVal2;
+        public static int GetHashCode4(T x, T y, T z, T w) => ((HashVal1 * HashVal2 + x.GetHashCode()) * HashVal2 + y.GetHashCode()) * HashVal2 + z.GetHashCode() * HashVal2 + w.GetHashCode() * HashVal2;
     }
 }
