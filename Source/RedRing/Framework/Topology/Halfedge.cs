@@ -28,7 +28,7 @@
         /// <summary>
         /// このハーフエッジを含む面
         /// </summary>
-        public Face Face { get; }
+        public Face LFace { get; }
 
         /// <summary>
         /// コンストラクタ
@@ -39,7 +39,7 @@
             SVertex = sVertex;
             if (sVertex == null)
             {
-                SVertex.Halfedge = this;
+                SVertex.Edge = this;
             }
         }
     }

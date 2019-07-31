@@ -8,7 +8,7 @@
         /// <summary>
         /// ハーフエッジ
         /// </summary>
-        public Halfedge Halfedge { get; }
+        public Halfedge Edge { get; }
 
         /// <summary>
         /// コンストラクタ
@@ -16,7 +16,7 @@
         /// <param name="halfedge">ハーフエッジ</param>
         public Face(Halfedge halfedge)
         {
-            Halfedge = halfedge;
+            Edge = halfedge;
         }
     }
 }

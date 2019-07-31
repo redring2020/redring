@@ -30,7 +30,7 @@ namespace RedRing.Framework.Topology
         /// <summary>
         /// この頂点を始点にもつハーフエッジの１つ
         /// </summary>
-        public Halfedge Halfedge { get; internal set; }
+        public Halfedge Edge { get; internal set; }
 
         /// <summary>
         /// コンストラクタ
@@ -41,7 +41,7 @@ namespace RedRing.Framework.Topology
         public Vertex(double x, double y, double z)
         {
             Position = new Vector(x, y, z);
-            Halfedge = null;
+            Edge = null;
         }
     }
 }
