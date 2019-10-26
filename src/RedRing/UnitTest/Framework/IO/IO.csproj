@@ -53,9 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Model\Model.csproj">
       <Project>{68C6989E-0652-4B83-9DE8-7B5C0BFA9A81}</Project>
       <Name>Model</Name>
