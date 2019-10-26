@@ -23,6 +23,40 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numerics", "Framework\Numer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topology", "Framework\Topology\Topology.csproj", "{75837C4D-6332-44DD-AFED-18C0C10169C2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BEACE88C-AF5E-4E20-8E75-31AE8DBDAE81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Application\Graphics\Graphics.csproj", "{38CB765C-8183-4E29-8AB0-918E01A7C756}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icon", "icon", "{F909D590-4B6C-4E60-A800-AAC38D52CD32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ai", "ai", "{55A95CF6-224F-4A98-B4B4-8B18554CEBC4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\icon\ai\RedRing.ai = ..\..\icon\ai\RedRing.ai
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "png", "png", "{82790FE5-158B-42A4-A3C5-27134D7B82EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedRing", "RedRing", "{F22C2BD8-C294-48BC-8ED2-E9EC1E179C41}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\icon\png\RedRing\RedRing128.png = ..\..\icon\png\RedRing\RedRing128.png
+		..\..\icon\png\RedRing\RedRing16.png = ..\..\icon\png\RedRing\RedRing16.png
+		..\..\icon\png\RedRing\RedRing24.png = ..\..\icon\png\RedRing\RedRing24.png
+		..\..\icon\png\RedRing\RedRing256.png = ..\..\icon\png\RedRing\RedRing256.png
+		..\..\icon\png\RedRing\RedRing32.png = ..\..\icon\png\RedRing\RedRing32.png
+		..\..\icon\png\RedRing\RedRing48.png = ..\..\icon\png\RedRing\RedRing48.png
+		..\..\icon\png\RedRing\RedRing64.png = ..\..\icon\png\RedRing\RedRing64.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ico", "ico", "{739E4846-67EE-4841-8660-A9AEA8057A72}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\icon\ico\RedRing.ico = ..\..\icon\ico\RedRing.ico
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xcf", "xcf", "{B1D0D162-A987-404C-BAF6-684425DA427C}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\icon\xcf\RedRing.xcf = ..\..\icon\xcf\RedRing.xcf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,15 +99,26 @@ Global
 		{75837C4D-6332-44DD-AFED-18C0C10169C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75837C4D-6332-44DD-AFED-18C0C10169C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75837C4D-6332-44DD-AFED-18C0C10169C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CB765C-8183-4E29-8AB0-918E01A7C756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CB765C-8183-4E29-8AB0-918E01A7C756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CB765C-8183-4E29-8AB0-918E01A7C756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CB765C-8183-4E29-8AB0-918E01A7C756}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{0AC46F1F-DDEC-4164-BC44-A018D41735B7} = {BEACE88C-AF5E-4E20-8E75-31AE8DBDAE81}
 		{0A14577B-41AB-45C7-B096-A964BB9AE68F} = {332C7417-95FC-404F-97FA-CF939ED88534}
 		{5641B236-FDB0-4F27-A031-8451DF530340} = {332C7417-95FC-404F-97FA-CF939ED88534}
 		{580D0A69-8614-4219-A022-5AE96B79868A} = {332C7417-95FC-404F-97FA-CF939ED88534}
 		{75837C4D-6332-44DD-AFED-18C0C10169C2} = {332C7417-95FC-404F-97FA-CF939ED88534}
+		{38CB765C-8183-4E29-8AB0-918E01A7C756} = {BEACE88C-AF5E-4E20-8E75-31AE8DBDAE81}
+		{55A95CF6-224F-4A98-B4B4-8B18554CEBC4} = {F909D590-4B6C-4E60-A800-AAC38D52CD32}
+		{82790FE5-158B-42A4-A3C5-27134D7B82EB} = {F909D590-4B6C-4E60-A800-AAC38D52CD32}
+		{F22C2BD8-C294-48BC-8ED2-E9EC1E179C41} = {82790FE5-158B-42A4-A3C5-27134D7B82EB}
+		{739E4846-67EE-4841-8660-A9AEA8057A72} = {F909D590-4B6C-4E60-A800-AAC38D52CD32}
+		{B1D0D162-A987-404C-BAF6-684425DA427C} = {F909D590-4B6C-4E60-A800-AAC38D52CD32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FECF9C78-A5AF-4ECF-A674-B7CE4FEFCD5B}
