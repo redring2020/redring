@@ -2,7 +2,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using RedRing.Model;
-using RedRing.Model.IO;
+using RedRing.Framework.IO;
 
 namespace RedRing.ViewModel
 {
@@ -23,7 +23,8 @@ namespace RedRing.ViewModel
                         new FileOpenMessage(
                             async path =>
                     {
-                        モデル.モデルを追加する(await STLFile.LoadAsync(path));
+                        var triangleMesh = await STLFile.LoadAsync(path);
+                        モデル.モデルを追加する(new TriangleFaces(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
                     }));
                 });
         }

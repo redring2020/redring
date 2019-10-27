@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.InteropServices;
+using RedRing.Framework.Geometry.Double.Geometry3D;
 
-namespace RedRing.Model.IO
+namespace RedRing.Framework.IO
 {
     /// <summary>
     /// STLファイルのIO処理を行うクラス
@@ -39,21 +40,21 @@ namespace RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        static async Task<TriangleFaces> LoadAsciiAsync(string filePath)
+        static async Task<TriangleMesh> LoadAsciiAsync(string filePath)
         {
             // テキストファイルを開く
             using(var sr = File.OpenText(filePath))
             {
                 string line;
                 bool commentFlg = false;
-                var vertices = new List<ベクトル>();
+                var vertices = new List<Vector>();
                 var vertexIndices = new List<Tuple<int, int, int>>();
                 string lowerToken;
                 ValueType valueType = ValueType.None;
                 int valueCount = 0;
                 double value1 = double.NaN;
                 double value2 = double.NaN;
-                double value;
+                double value = double.NaN;
                 int lastIndex;
 
                 // 1行ずつ読み込む
@@ -113,7 +114,7 @@ namespace RedRing.Model.IO
                                             valueCount++;
                                             break;
                                         case 2:
-                                            vertices.Add(new ベクトル(value1, value2, value));
+                                            vertices.Add(new Vector(value1, value2, value));
 
                                             if (vertices.Count % 3 == 0)
                                             {
@@ -158,7 +159,7 @@ namespace RedRing.Model.IO
 
                 if (vertices.Count >= 3 && vertexIndices.Count > 0)
                 {
-                    return new TriangleFaces(vertices, vertexIndices);
+                    return new TriangleMesh(vertices, vertexIndices);
                 }
                 else
                 {
@@ -210,7 +211,7 @@ namespace RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        static async Task<TriangleFaces> LoadBinaryAsync(string filePath)
+        static async Task<TriangleMesh> LoadBinaryAsync(string filePath)
         {
             // ファイルを開く
             using (var br = new BinaryReader(File.OpenRead(filePath)))
@@ -227,7 +228,7 @@ namespace RedRing.Model.IO
                     var size = Marshal.SizeOf(typeof(Facet));
                     var ptr = IntPtr.Zero;
 
-                    var vertices = new List<ベクトル>();
+                    var vertices = new List<Vector>();
                     var vertexIndices = new List<Tuple<int, int, int>>();
                     int lastIndex;
 
@@ -241,9 +242,9 @@ namespace RedRing.Model.IO
                             var facet = (Facet)Marshal.PtrToStructure(ptr, typeof(Facet));
 
                             // 頂点を追加する
-                            vertices.Add(new ベクトル(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
-                            vertices.Add(new ベクトル(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
-                            vertices.Add(new ベクトル(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
+                            vertices.Add(new Vector(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
+                            vertices.Add(new Vector(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
+                            vertices.Add(new Vector(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
 
                             // 頂点インデックスを追加する
                             lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
@@ -260,7 +261,7 @@ namespace RedRing.Model.IO
 
                     if (vertices.Count >= 3 && vertexIndices.Count > 0)
                     {
-                        return new TriangleFaces(vertices, vertexIndices);
+                        return new TriangleMesh(vertices, vertexIndices);
                     }
                     else
                     {
@@ -299,7 +300,7 @@ namespace RedRing.Model.IO
         /// </summary>
         /// <param name="filePath">ファイルパス</param>
         /// <returns>成功したら三角形ファセット群のデータを返し、失敗したらnullを返す</returns>
-        public static async Task<TriangleFaces> LoadAsync(string filePath)
+        public static async Task<TriangleMesh> LoadAsync(string filePath)
         {
             if (await IsBinaryAsync(filePath))
             {
