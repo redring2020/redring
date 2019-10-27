@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "STLBinary", "STLBinary", "{
 		UnitTest\TestData\STLBinary\cube-binary.stl = UnitTest\TestData\STLBinary\cube-binary.stl
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedRing", "Application\Wpf\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedRing", "Application\RedRing\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
