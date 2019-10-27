@@ -22,7 +22,7 @@ namespace RedRing.Wpf
     /// <summary>
     /// モデル表示領域.xaml の相互作用ロジック
     /// </summary>
-    public partial class モデル表示領域 : Viewport3D
+    public partial class モデル表示領域 : Grid
     {
         DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(200) };
 
