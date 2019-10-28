@@ -4,7 +4,7 @@ using System.Windows.Data;
 using System.Windows.Media.Media3D;
 using RedRing.Model;
 
-namespace RedRing.Wpf
+namespace RedRing
 {
     class ToViewConverter : IValueConverter
     {

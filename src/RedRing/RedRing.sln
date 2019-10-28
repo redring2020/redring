@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "STLBinary", "STLBinary", "{
 		UnitTest\TestData\STLBinary\cube-binary.stl = UnitTest\TestData\STLBinary\cube-binary.stl
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedRing", "Application\RedRing\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedRing", "RedRing\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,7 +111,6 @@ Global
 		{0CA7273E-1874-439A-A89D-FA2557F15297} = {F6537CDE-0C14-4EC1-9E6F-E7F4F60AAE32}
 		{719E8FD3-3B8D-4A82-B5C3-201EA2D60C25} = {0CA7273E-1874-439A-A89D-FA2557F15297}
 		{CE572CCB-F6D2-4976-B881-1E9739FC6EC9} = {0CA7273E-1874-439A-A89D-FA2557F15297}
-		{0AC46F1F-DDEC-4164-BC44-A018D41735B7} = {BEACE88C-AF5E-4E20-8E75-31AE8DBDAE81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FECF9C78-A5AF-4ECF-A674-B7CE4FEFCD5B}

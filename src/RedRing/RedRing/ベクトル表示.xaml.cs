@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using RedRing.Model;
 
-namespace RedRing.Wpf
+namespace RedRing
 {
     /// <summary>
     /// ベクトル表示.xaml の相互作用ロジック

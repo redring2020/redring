@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using RedRing.Model;
 
-namespace RedRing.Wpf
+namespace RedRing
 {
     /// <summary>
     /// モデル表示領域.xaml の相互作用ロジック
     /// </summary>
-    public partial class モデル表示領域 : Grid
+    public partial class モデル表示領域 : UserControl
     {
         DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(200) };
 

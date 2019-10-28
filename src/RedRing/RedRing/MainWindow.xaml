@@ -1,13 +1,13 @@
-﻿<Window x:Class="RedRing.Wpf.MainWindow"
+﻿<Window x:Class="RedRing.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d" 
-        xmlns:view="clr-namespace:RedRing.Wpf"
+        xmlns:view="clr-namespace:RedRing"
         xmlns:model="clr-namespace:RedRing.Model;assembly=RedRing.Model"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="RedRing" Height="350" Width="525" Icon="/RedRing.Wpf;component/Resources/RedRing.ico">
+        Title="RedRing" Height="350" Width="525" Icon="/RedRing;component/Resources/RedRing.ico">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top" SelectionChanged="Ribbon_SelectionChanged">
             <RibbonTab Header="ファイル">

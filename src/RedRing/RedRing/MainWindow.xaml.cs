@@ -4,7 +4,7 @@ using GalaSoft.MvvmLight.Messaging;
 using RedRing.ViewModel;
 using Microsoft.Win32;
 
-namespace RedRing.Wpf
+namespace RedRing
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック

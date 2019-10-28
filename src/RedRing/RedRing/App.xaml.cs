@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RedRing.Wpf
+namespace RedRing
 {
     /// <summary>
     /// App.xaml の相互作用ロジック
