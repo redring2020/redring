@@ -1,7 +1,7 @@
 /*
   In App.xaml:
   <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:Marimo.RedRing.Wpf"
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:RedRing"
                            x:Key="Locator" />
   </Application.Resources>
   

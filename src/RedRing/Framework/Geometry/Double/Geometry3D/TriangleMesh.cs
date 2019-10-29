@@ -14,7 +14,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         /// <summary>
         /// 頂点群
         /// </summary>
-        public IEnumerable<Vector> Vertices { get; set; }
+        public IEnumerable<Point> Vertices { get; set; }
 
         /// <summary>
         /// 頂点インデックス
@@ -32,7 +32,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
         /// <param name="vertexNormals">頂点の法線方向</param>
-        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
+        public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
         {
             Vertices = vertices;
             VertexIndices = vertexIndices;
@@ -44,7 +44,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         /// </summary>
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点の法線方向</param>
-        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
+        public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
         {
             Vertices = vertices;
             VertexIndices = vertexIndices;

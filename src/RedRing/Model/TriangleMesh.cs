@@ -34,12 +34,12 @@ namespace RedRing.Model
         /// </summary>
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
-        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
+        public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            foreach (var vertex in vertices)
+            foreach (var point in vertices)
             {
-                頂点群.Append(new ベクトル(vertex.X, vertex.Y, vertex.Z));
+                頂点群.Append(new ベクトル(point.X, point.Y, point.Z));
             }
 
             originalGeometry = new Geometry(頂点群, vertexIndices, new ベクトル[] { });
@@ -57,12 +57,12 @@ namespace RedRing.Model
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
         /// <param name="vertexNormals">頂点の法線方向</param>
-        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
+        public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            foreach(var vertex in vertices)
+            foreach(var point in vertices)
             {
-                頂点群.Append(new ベクトル(vertex.X, vertex.Y, vertex.Z));
+                頂点群.Append(new ベクトル(point.X, point.Y, point.Z));
             }
 
             IEnumerable<ベクトル> 頂点法線方向群 = new ベクトル[] { };

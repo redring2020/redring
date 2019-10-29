@@ -47,7 +47,7 @@ namespace RedRing.Framework.IO
             {
                 string line;
                 bool commentFlg = false;
-                var vertices = new List<Vector>();
+                var vertices = new List<Point>();
                 var vertexIndices = new List<Tuple<int, int, int>>();
                 string lowerToken;
                 ValueType valueType = ValueType.None;
@@ -114,7 +114,7 @@ namespace RedRing.Framework.IO
                                             valueCount++;
                                             break;
                                         case 2:
-                                            vertices.Add(new Vector(value1, value2, value));
+                                            vertices.Add(new Point(value1, value2, value));
 
                                             if (vertices.Count % 3 == 0)
                                             {
@@ -228,7 +228,7 @@ namespace RedRing.Framework.IO
                     var size = Marshal.SizeOf(typeof(Facet));
                     var ptr = IntPtr.Zero;
 
-                    var vertices = new List<Vector>();
+                    var vertices = new List<Point>();
                     var vertexIndices = new List<Tuple<int, int, int>>();
                     int lastIndex;
 
@@ -242,9 +242,9 @@ namespace RedRing.Framework.IO
                             var facet = (Facet)Marshal.PtrToStructure(ptr, typeof(Facet));
 
                             // 頂点を追加する
-                            vertices.Add(new Vector(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
-                            vertices.Add(new Vector(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
-                            vertices.Add(new Vector(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
+                            vertices.Add(new Point(facet.Vertex1[0], facet.Vertex1[1], facet.Vertex1[2]));
+                            vertices.Add(new Point(facet.Vertex2[0], facet.Vertex2[1], facet.Vertex2[2]));
+                            vertices.Add(new Point(facet.Vertex3[0], facet.Vertex3[1], facet.Vertex3[2]));
 
                             // 頂点インデックスを追加する
                             lastIndex = vertexIndices.Any() ? vertexIndices.Last().Item3 : -1;
