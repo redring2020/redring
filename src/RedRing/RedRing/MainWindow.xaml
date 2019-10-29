@@ -32,8 +32,8 @@
                 <DataTemplate DataType="{x:Type model:立方体}">
                     <view:ベクトル表示 d:DataContext="{d:DesignInstance Type=model:立方体}" Header="位置" Source="{Binding 位置}"/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type model:TriangleFaces}">
-                    <view:ベクトル表示 d:DataContext="{d:DesignInstance Type=model:TriangleFaces}" Header="位置" Source="{Binding 位置}"/>
+                <DataTemplate DataType="{x:Type model:TriangleMesh}">
+                    <view:ベクトル表示 d:DataContext="{d:DesignInstance Type=model:TriangleMesh}" Header="位置" Source="{Binding 位置}"/>
                 </DataTemplate>
             </ListBox.Resources>
         </ListBox>

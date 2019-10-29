@@ -7,7 +7,7 @@ using RedRing.Model;
 
 namespace RedRing.Model
 {
-    public class TriangleFaces : ObservableObject, I3DModel
+    public class TriangleMesh : ObservableObject, I3DModel
     {
         Geometry originalGeometry;
 
@@ -34,7 +34,7 @@ namespace RedRing.Model
         /// </summary>
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
-        public TriangleFaces(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
+        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
             foreach (var vertex in vertices)
@@ -57,7 +57,7 @@ namespace RedRing.Model
         /// <param name="vertices">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
         /// <param name="vertexNormals">頂点の法線方向</param>
-        public TriangleFaces(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
+        public TriangleMesh(IEnumerable<Vector> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
             foreach(var vertex in vertices)

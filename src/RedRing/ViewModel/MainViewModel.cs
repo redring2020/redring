@@ -24,7 +24,7 @@ namespace RedRing.ViewModel
                             async path =>
                     {
                         var triangleMesh = await STLFile.LoadAsync(path);
-                        モデル.モデルを追加する(new TriangleFaces(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                        モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
                     }));
                 });
         }

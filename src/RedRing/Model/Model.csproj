@@ -64,7 +64,7 @@
     <Compile Include="カメラ.cs" />
     <Compile Include="ベクトル.cs" />
     <Compile Include="Geometry.cs" />
-    <Compile Include="TriangleFaces.cs" />
+    <Compile Include="TriangleMesh.cs" />
     <Compile Include="位置ベクトル.cs" />
     <Compile Include="空間.cs" />
     <Compile Include="立方体.cs" />
