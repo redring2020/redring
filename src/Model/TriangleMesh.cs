@@ -37,9 +37,9 @@ namespace RedRing.Model
         public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            foreach (var point in vertices)
+            if (vertices.Any())
             {
-                頂点群.Append(new ベクトル(point.X, point.Y, point.Z));
+                頂点群 = vertices.Select(_ => new ベクトル(_.X, _.Y, _.Z));
             }
 
             originalGeometry = new Geometry(頂点群, vertexIndices, new ベクトル[] { });
@@ -60,15 +60,15 @@ namespace RedRing.Model
         public TriangleMesh(IEnumerable<Point> vertices, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
         {
             IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            foreach(var point in vertices)
+            if (vertices.Any())
             {
-                頂点群.Append(new ベクトル(point.X, point.Y, point.Z));
+                頂点群 = vertices.Select(_ => new ベクトル(_.X, _.Y, _.Z));
             }
 
             IEnumerable<ベクトル> 頂点法線方向群 = new ベクトル[] { };
-            foreach(var vertexNormal in vertexNormals)
+            if (vertexNormals.Any())
             {
-                頂点法線方向群.Append(new ベクトル(vertexNormal.X, vertexNormal.Y, vertexNormal.Z));
+                頂点法線方向群 = vertexNormals.Select(_ => new ベクトル(_.X, _.Y, _.Z));
             }
 
             originalGeometry = new Geometry(頂点群, vertexIndices, 頂点法線方向群);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using RedRing.Framework.Geometry.Double.Geometry3D;
 
 namespace RedRing.Model
 {
@@ -56,6 +57,15 @@ namespace RedRing.Model
         public static ベクトル operator+(ベクトル l, ベクトル r)
         {
             return new ベクトル(l.X + r.X, l.Y + r.Y, l.Z + r.Z);
+        }
+
+        /// <summary>
+        /// Vectorからベクトルに変換する
+        /// </summary>
+        /// <param name="v">ベクトル</param>
+        public static explicit operator ベクトル(Vector v)
+        {
+            return new ベクトル(v.X, v.Y, v.Z);
         }
     }
 }
