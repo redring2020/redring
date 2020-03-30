@@ -18,6 +18,11 @@ namespace RedRing
         DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(200) };
         private Matrix3D matrix = Matrix3D.Identity;
         private bool isDrag = false;
+        private enum DragType
+        {
+            None, Rotate, Translate, Scale
+        }
+        DragType dragType = DragType.None;
         private Point offset;
         const double AngleRatio = 0.5;
 
@@ -76,9 +81,6 @@ namespace RedRing
                     );
                 }
             };
-
-            //var events = new EventsExtension<Grid>(model);
-            //events.MouseDragDelta.Subscribe(ViewModel.RotateDelta);
         }
 
         private void Viewport3D_Loaded(object sender, RoutedEventArgs e)
@@ -89,6 +91,7 @@ namespace RedRing
         private void mouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = true;
+            dragType = DragType.Rotate;
             offset = e.GetPosition(this);
         }
 
@@ -107,8 +110,20 @@ namespace RedRing
                 var deltaLength = delta.Length;
                 if (deltaLength == 0) return;
 
-                var distance = GetDistance((Vector)offset, delta);
-                matrixTransform.Rotate(new Vector3D(delta.Y, delta.X, distance), AngleRatio * deltaLength);
+                switch (dragType)
+                {
+                    case DragType.Rotate:
+                        var distance = GetDistance((Vector)offset, delta);
+                        matrixTransform.Rotate(new Vector3D(delta.Y, delta.X, distance), AngleRatio * deltaLength);
+                        break;
+                    case DragType.Translate:
+                        matrixTransform.Translate(new Vector3D(delta.X, delta.Y, 0.0));
+                        break;
+                    case DragType.Scale:
+                        break;
+                    default:
+                        break;
+                }
             }
 
         }
@@ -116,11 +131,27 @@ namespace RedRing
         private void mouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = false;
+            dragType = DragType.None;
         }
 
         private void mouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             isDrag = false;
+            dragType = DragType.None;
+        }
+
+        private void mouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            isDrag = true;
+            dragType = DragType.Translate;
+            offset = e.GetPosition(this);
+
+        }
+
+        private void mouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            isDrag = false;
+            dragType = DragType.None;
         }
     }
 
@@ -130,6 +161,57 @@ namespace RedRing
         {
             var matrix = transform.Matrix;
             matrix.Rotate(new Quaternion(axis, angle));
+            transform.Matrix = matrix;
+        }
+
+        // 回転マトリックスのX軸方向を求めます。
+        static Vector3D GetXAxis(this MatrixTransform3D transform)
+        {
+            var axis = new Vector3D(transform.Matrix.M11, transform.Matrix.M12, transform.Matrix.M13);
+            axis.Normalize();
+
+            return axis;
+        }
+
+        static Vector3D GetYAxis(this MatrixTransform3D transform)
+        {
+            var axis = new Vector3D(transform.Matrix.M21, transform.Matrix.M22, transform.Matrix.M23);
+            axis.Normalize();
+
+            return axis;
+        }
+
+        static Vector3D GetZAxis(this MatrixTransform3D transform)
+        {
+            var axis = new Vector3D(transform.Matrix.M31, transform.Matrix.M32, transform.Matrix.M33);
+            axis.Normalize();
+
+            return axis;
+        }
+
+        public static void Translate(this MatrixTransform3D transform, Vector3D offset)
+        {
+            var axisX = GetXAxis(transform);
+            var axisY = GetYAxis(transform);
+            var axisZ = GetZAxis(transform);
+
+            if (Vector3D.CrossProduct(new Vector3D(1.0, 0.0, 0.0), axisX).Length != 0)
+            {
+                offset.X *= Vector3D.DotProduct(new Vector3D(1.0, 0.0, 0.0), axisX);
+            }
+
+            if (Vector3D.CrossProduct(new Vector3D(0.0, 1.0, 0.0), axisY).Length != 0)
+            {
+                offset.Y *= Vector3D.DotProduct(new Vector3D(0.0, 1.0, 0.0), axisY);
+            }
+
+            if (Vector3D.CrossProduct(new Vector3D(0.0, 0.0, 1.0), axisZ).Length != 0)
+            {
+                offset.Z *= Vector3D.DotProduct(new Vector3D(0.0, 0.0, 1.0), axisZ);
+            }
+
+            var matrix = transform.Matrix;
+            matrix.Translate(offset);
             transform.Matrix = matrix;
         }
     }

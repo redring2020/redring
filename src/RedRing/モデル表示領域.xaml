@@ -9,25 +9,25 @@
          d:DesignHeight="300" d:DesignWidth="300" Loaded="Viewport3D_Loaded"
          d:DataContext="{d:DesignInstance Type={x:Type model:空間}}" Background="Azure">
     <Grid x:Name="model">
-        <Viewport3D>
+        <Viewport3D MouseLeftButtonDown="mouseLeftButtonDown" MouseLeftButtonUp="mouseLeftButtonUp" MouseRightButtonDown="mouseRightButtonDown" MouseRightButtonUp="mouseLeftButtonUp" MouseMove="mouseMove" MouseLeave="mouseLeave">
             <Viewport3D.Resources>
                 <local:ToViewConverter x:Key="ToViewConverter"/>
             </Viewport3D.Resources>
             <Viewport3D.Camera>
                 <PerspectiveCamera LookDirection="{Binding カメラ.方向, Converter={StaticResource ToViewConverter}}" Position="{Binding カメラ.位置, Converter={StaticResource ToViewConverter}}"/>
             </Viewport3D.Camera>
-            <ModelUIElement3D MouseLeftButtonDown="mouseLeftButtonDown" MouseLeftButtonUp="mouseLeftButtonUp" MouseLeave="mouseLeave" MouseMove="mouseMove">
-                <Model3DGroup x:Name="group">
-                    <Model3DGroup.Transform>
-                        <Transform3DGroup>
-                            <RotateTransform3D>
-                                <RotateTransform3D.Rotation>
-                                    <AxisAngleRotation3D Axis="-0.8,0.3,0.5" Angle="60"/>
-                                </RotateTransform3D.Rotation>
-                            </RotateTransform3D>
-                            <MatrixTransform3D x:Name="matrixTransform"/>
-                        </Transform3DGroup>
-                    </Model3DGroup.Transform>
+            <ModelUIElement3D>
+            <Model3DGroup x:Name="group">
+                <Model3DGroup.Transform>
+                    <Transform3DGroup>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Axis="-0.8,0.3,0.5" Angle="60"/>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <MatrixTransform3D x:Name="matrixTransform"/>
+                    </Transform3DGroup>
+                </Model3DGroup.Transform>
                 </Model3DGroup>
             </ModelUIElement3D>
         </Viewport3D>
