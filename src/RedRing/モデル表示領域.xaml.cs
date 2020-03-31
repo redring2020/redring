@@ -167,7 +167,7 @@ namespace RedRing
         // 回転マトリックスのX軸方向を求めます。
         static Vector3D GetXAxis(this MatrixTransform3D transform)
         {
-            var axis = new Vector3D(transform.Matrix.M11, transform.Matrix.M12, transform.Matrix.M13);
+            var axis = new Vector3D(transform.Matrix.M11, transform.Matrix.M21, transform.Matrix.M31);
             axis.Normalize();
 
             return axis;
@@ -175,7 +175,7 @@ namespace RedRing
 
         static Vector3D GetYAxis(this MatrixTransform3D transform)
         {
-            var axis = new Vector3D(transform.Matrix.M21, transform.Matrix.M22, transform.Matrix.M23);
+            var axis = new Vector3D(transform.Matrix.M12, transform.Matrix.M22, transform.Matrix.M32);
             axis.Normalize();
 
             return axis;
@@ -183,7 +183,7 @@ namespace RedRing
 
         static Vector3D GetZAxis(this MatrixTransform3D transform)
         {
-            var axis = new Vector3D(transform.Matrix.M31, transform.Matrix.M32, transform.Matrix.M33);
+            var axis = new Vector3D(transform.Matrix.M13, transform.Matrix.M23, transform.Matrix.M33);
             axis.Normalize();
 
             return axis;

@@ -7,9 +7,16 @@
          xmlns:local="clr-namespace:RedRing" x:Class="RedRing.モデル表示領域"
          mc:Ignorable="d" 
          d:DesignHeight="300" d:DesignWidth="300" Loaded="Viewport3D_Loaded"
-         d:DataContext="{d:DesignInstance Type={x:Type model:空間}}" Background="Azure">
+         d:DataContext="{d:DesignInstance Type={x:Type model:空間}}"
+         Background="Azure"
+         MouseLeftButtonDown="mouseLeftButtonDown"
+         MouseLeftButtonUp="mouseLeftButtonUp"
+         MouseRightButtonDown="mouseRightButtonDown"
+         MouseRightButtonUp="mouseLeftButtonUp"
+         MouseMove="mouseMove"
+         MouseLeave="mouseLeave">
     <Grid x:Name="model">
-        <Viewport3D MouseLeftButtonDown="mouseLeftButtonDown" MouseLeftButtonUp="mouseLeftButtonUp" MouseRightButtonDown="mouseRightButtonDown" MouseRightButtonUp="mouseLeftButtonUp" MouseMove="mouseMove" MouseLeave="mouseLeave">
+        <Viewport3D>
             <Viewport3D.Resources>
                 <local:ToViewConverter x:Key="ToViewConverter"/>
             </Viewport3D.Resources>
