@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Input\OBJFile.cs" />
+    <Compile Include="Output\STLFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STLFile.cs" />
+    <Compile Include="Input\STLFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geometry\Geometry.csproj">

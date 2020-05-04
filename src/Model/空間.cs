@@ -1,4 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using RedRing.Framework.Geometry.Double.Geometry3D;
 
 namespace RedRing.Model
 {
@@ -16,6 +20,27 @@ namespace RedRing.Model
         public void モデルを追加する(I3DModel モデル)
         {
             表示モデル.Add(モデル);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh> GetTriangleMeshes()
+        {
+            IEnumerable<RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh> triangleMeshes = new RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh[] { };
+            foreach (TriangleMesh model in 表示モデル)
+            {
+                IEnumerable<Point> vertexes = new Point[] { };
+                if (model.Geometry.Positions.Any())
+                {
+                    vertexes = model.Geometry.Positions.Select(_ => new Point(_.X, _.Y, _.Z));
+                }
+
+                triangleMeshes = triangleMeshes.Append(new RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh(vertexes, model.Geometry.TriangleIndices)).ToList();
+            }
+
+            return triangleMeshes;
         }
     }
 }

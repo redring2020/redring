@@ -67,5 +67,12 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         /// <returns>Z軸平行ベクトル</returns>
         public static Vector GetZVector() =>
             new Vector(Vector3D.GetZAxis());
+
+        /// <summary>
+        /// ゼロベクトルの取得
+        /// </summary>
+        /// <returns>ゼロベクトル</returns>
+        public static Vector GetZeroVector() =>
+            new Vector(Vector3D.GetZeroVector());
     }
 }

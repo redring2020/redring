@@ -282,5 +282,13 @@ namespace RedRing.Framework.Numerics.LinerAlgebra.Double
         /// <returns>Z軸平行ベクトル</returns>
         public static Vector3D GetZAxis() =>
             new Vector3D(0.0, 0.0, 1.0);
+
+        /// <summary>
+        /// ゼロベクトルの取得
+        /// </summary>
+        /// <returns>ゼロベクトル</returns>
+        public static Vector3D GetZeroVector() =>
+            new Vector3D(0.0, 0.0, 0.0);
+
     }
 }

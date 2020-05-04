@@ -17,7 +17,7 @@ namespace RedRing.ViewModel
 
             立方体を追加する = new RelayCommand(() => モデル.モデルを追加する(new 立方体()));
 
-            STLファイルを読み込む = new RelayCommand(
+            Inport = new RelayCommand(
                 () => {
                     MessengerInstance.Send(
                         new FileOpenMessage(
@@ -27,10 +27,30 @@ namespace RedRing.ViewModel
                         モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
                     }));
                 });
+
+            Export = new RelayCommand(
+                () =>
+                {
+                    MessengerInstance.Send(
+                        new FileSaveMessage(
+                            async (path, filterIndex) =>
+                            {
+                                switch(filterIndex)
+                                {
+                                    case 1:
+                                        await STLFile.WriteAsciiAsync(モデル.GetTriangleMeshes(), path);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }));
+                });
         }
 
         public RelayCommand 立方体を追加する { get; private set; }
 
-        public RelayCommand STLファイルを読み込む { get; private set; }
+        public RelayCommand Inport { get; private set; }
+
+        public RelayCommand Export { get; private set; }
     }
 }
