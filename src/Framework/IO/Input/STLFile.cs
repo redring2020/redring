@@ -61,7 +61,7 @@ namespace RedRing.Framework.IO
                 while ((line = await sr.ReadLineAsync()) != null)
                 {
                     // スペース区切りのトークンに分ける
-                    string[] tokens = line.Trim().Split(' ');
+                    IEnumerable<string> tokens = line.Trim().Split(' ');
                     foreach (var token in tokens)
                     {
                         // トークンを小文字に変更する
@@ -95,6 +95,10 @@ namespace RedRing.Framework.IO
                             valueType = ValueType.Vertex;
                             valueCount = 0;
                         }
+                        else if (lowerToken == "endsolid")
+                        {
+                            commentFlg = true;
+                        }
                         else if (double.TryParse(token, out value))
                         {
                             switch (valueType)
@@ -127,7 +131,8 @@ namespace RedRing.Framework.IO
                                     }
                                     break;
                                 default:
-                                    throw new Exception("無効な数値です。");
+                                    // 何もしない
+                                    break;
                             }
                         }
                         else if (lowerToken == "endloop")
