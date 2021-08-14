@@ -23,8 +23,19 @@ namespace RedRing.ViewModel
                         new FileOpenMessage(
                             async path =>
                     {
-                        var triangleMesh = await STLFile.LoadAsync(path);
-                        モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                        var lowerPath = path.ToLower();
+                        var token = lowerPath.Split('.');
+                        switch (token.GetValue(token.Length - 1))
+                        {
+                            case "stl":
+                                var triangleMesh = await STLFile.LoadAsync(path);
+                                モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                                break;
+                            case "obj":
+                                triangleMesh = await OBJFile.LoadAsync(path);
+                                モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                                break;
+                        }
                     }));
                 });
 
