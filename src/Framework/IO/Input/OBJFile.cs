@@ -32,82 +32,117 @@ namespace RedRing.Framework.IO
                     IEnumerable<string> tokens = line.Trim().Split(' ', '/');
 
                     // トークンを小文字に変更する
-                        lowerToken = tokens.First().ToLower();
+                    lowerToken = tokens.First().ToLower();
 
                     // トークンに対して然るべき処理を行う。
                     // それなりに厳密に書式を見ていくことにする
-                    if (lowerToken == "#")
+                    switch (lowerToken)
                     {
-                        // コメント
-                        continue;
-                    }
-                    else if (lowerToken == "mtllib")
-                    {
-                        // マテリアル情報、今のところ何もしない
-                        continue;
-                    }
-                    else if (lowerToken == "g")
-                    {
-                        // 何もしない
-                        continue;
-                    }
-                    else if (lowerToken == "usemtl")
-                    {
-                        // 何もしない
-                        continue;
-                    }
-                    else if (lowerToken == "v")
-                    {
-                        // 頂点座標値
-                        double value = double.NaN;
-                        double value1 = double.NaN;
-                        double value2 = double.NaN;
+                        case "#":
+                            // コメント
+                            continue;
 
-                        if (double.TryParse(tokens.ElementAt(1), out value) && double.TryParse(tokens.ElementAt(2), out value1) && double.TryParse(tokens.ElementAt(3), out value2))
-                        {
-                            vertices.Add(new Point(value, value1, value2));
-                        }
-                    }
-                    else if (lowerToken == "vt")
-                    {
-                        // 頂点テクスチャ番号、今のところ何もしない
-                        continue;
-                    }
-                    else if (lowerToken == "vn")
-                    {
-                        // 頂点法線ベクトル、今のところ何もしない
-                        continue;
-                    }
-                    else if (lowerToken == "f")
-                    {
-                        // 面情報
-                        int value;
-                        int value1;
-                        int value2;
+                        case "mtllib":
+                            // マテリアル情報、今のところ何もしない
+                            continue;
 
-                        // 頂点番号
-                        if (int.TryParse(tokens.ElementAt(1), out value) && int.TryParse(tokens.ElementAt(2), out value1) && int.TryParse(tokens.ElementAt(3), out value2))
-                        {
-                            vertexIndices.Add(new Tuple<int, int, int>(value - 1, value1 - 1, value2 - 1));
-                        }
-                    }
-                    else if (lowerToken == string.Empty)
-                    {
-                        // 何もしない
-                    }
-                    else
-                    {
-                        throw new Exception("無効な書式です。");
+                        case "g":
+                            // 何もしない
+                            continue;
+
+                        case "usemtl":
+                            // 何もしない
+                            continue;
+
+                        case "v":
+                            // 頂点座標値
+                            double value1;
+                            double value2;
+                            double value3;
+
+                            if (double.TryParse(tokens.ElementAt(1), out value1) && double.TryParse(tokens.ElementAt(2), out value2) && double.TryParse(tokens.ElementAt(3), out value3))
+                            {
+                                vertices.Add(new Point(value1, value2, value3));
+                            }
+                            break;
+
+                        case "vt":
+                            // 頂点テクスチャ番号、今のところ何もしない
+                            continue;
+
+                        case "vn":
+                            // 頂点法線ベクトル、今のところ何もしない
+                            continue;
+
+                        case "f":
+                            // 面情報
+                            int value4;
+                            int value5;
+                            int value6;
+
+                            // 頂点番号
+                            if (tokens.Count() == 4)
+                            {
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(2), out value5) && int.TryParse(tokens.ElementAt(3), out value6))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                }
+                            }
+                            else if (tokens.Count() == 7)
+                            {
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(3), out value5) && int.TryParse(tokens.ElementAt(5), out value6))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                }
+                            }
+                            else if (tokens.Count() == 10)
+                            {
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(4), out value5) && int.TryParse(tokens.ElementAt(7), out value6))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                }
+                            }
+                            else if (tokens.Count() == 5)
+                            {
+                                int value7;
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(2), out value5) && int.TryParse(tokens.ElementAt(3), out value6) && int.TryParse(tokens.ElementAt(4), out value7))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value6 - 1, value7 - 1));
+                                }
+                            }
+                            else if (tokens.Count() == 8)
+                            {
+                                int value7;
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(3), out value5) && int.TryParse(tokens.ElementAt(5), out value6) && int.TryParse(tokens.ElementAt(7), out value7))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value6 - 1, value7 - 1));
+                                }
+                            }
+                            else if (tokens.Count() == 13)
+                            {
+                                int value7;
+                                if (int.TryParse(tokens.ElementAt(1), out value4) && int.TryParse(tokens.ElementAt(4), out value5) && int.TryParse(tokens.ElementAt(7), out value6) && int.TryParse(tokens.ElementAt(10), out value7))
+                                {
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value5 - 1, value6 - 1));
+                                    vertexIndices.Add(new Tuple<int, int, int>(value4 - 1, value6 - 1, value7 - 1));
+                                }
+                            }
+                            break;
+                        default:
+                            // 何もしない
+                            break;
                     }
                 }
-
+                 
                 if (vertices.Count >= 3 && vertexIndices.Count > 0)
                 {
-                    return new TriangleMesh(vertices, vertexIndices);
+                   return new TriangleMesh(vertices, vertexIndices);
                 }
                 else
                 {
-                    return null;
+                   return null;
                 }
             }
         }
