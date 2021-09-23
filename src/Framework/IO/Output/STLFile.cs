@@ -13,67 +13,74 @@ namespace RedRing.Framework.IO
     /// <summary>
     /// STLファイルのIO処理を行うクラス
     /// </summary>
-    public static partial class STLFile
+    public partial class STLFile
     {
         /// <summary>
-        /// STLアスキーファイの書き出し
-        /// TODO：レトロすぎるコードを何とかする。（出力したファイルが読み込めない。）
+        /// テキスト(ASCII)形式でのSTLファイル書き込み
         /// </summary>
-        /// <param name="triangleMeshes"></param>
-        /// <param name="filePath"></param>
+        /// <param name="filePath">ファイルパス</param>
+        /// <returns>正常終了した場合は true、その他の場合は false</returns>
         public static async Task WriteAsciiAsync(IEnumerable<TriangleMesh> triangleMeshes, string filePath)
         {
-            await Task.Run(() =>
+            // filePath が入っていない場合はエラーとする
+            if (filePath == null)
+                throw new ArgumentNullException(nameof(filePath));
+
+            // ファセットデータが無い場合はエラー
+            if (triangleMeshes == null)
+                throw new ArgumentNullException(nameof(triangleMeshes));
+
+            try
             {
-                if (File.Exists(filePath) == false)
+                // 上書きの書き込みモードでファイルを開く
+                using (var writer = new StreamWriter(filePath, false, Encoding.ASCII))
                 {
-                    IEnumerable<string> contents = new string[] { };
-
-                    // バージョン
-                    Assembly assembly = Assembly.GetExecutingAssembly();
-                    AssemblyName asmName = assembly.GetName();
-                    Version version = asmName.Version;
-
-                    // ヘッダー
-                    contents = contents.Append("solid " + version.Major.ToString() + "." + version.Minor.ToString());
-
-                    int ii = 0;
-
-                    foreach (var triangleMesh in triangleMeshes)
+                    await Task.Run(() =>
                     {
-                        ii = 0;
+                        var assembly = Assembly.GetExecutingAssembly();
+                        var name = assembly.GetName().Name.Split('.').FirstOrDefault();
 
-                        foreach (var vertexIndex in triangleMesh.VertexIndices)
+                        // ヘッダ書き込み
+                        string header = name +' ' + assembly.GetName().Version;
+                        writer.WriteLine("solid " + header);
+
+                        // 全ファセットデータ書き込み
+                        foreach (var triangleMesh in triangleMeshes)
                         {
-                            Vector normal = triangleMesh.VertexNormals.ElementAtOrDefault(ii);
+                            int ii = 0;
+                            foreach (var vertexIndces in triangleMesh.VertexIndices)
+                            {
+                                writer.WriteLine("  facet normal " + ToText(triangleMesh.VertexNormals.ElementAtOrDefault(ii).X, triangleMesh.VertexNormals.ElementAtOrDefault(ii).Y, triangleMesh.VertexNormals.ElementAtOrDefault(ii).Z));
+                                writer.WriteLine("    outer loop");
+                                writer.WriteLine("      vertex " + ToText(triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).X, triangleMesh.Vertices.ElementAt(vertexIndces.Item1).Y, triangleMesh.Vertices.ElementAt(vertexIndces.Item1).Z));
+                                writer.WriteLine("      vertex " + ToText(triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X, triangleMesh.Vertices.ElementAt(vertexIndces.Item2).Y, triangleMesh.Vertices.ElementAt(vertexIndces.Item2).Z));
+                                writer.WriteLine("      vertex " + ToText(triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).X, triangleMesh.Vertices.ElementAt(vertexIndces.Item3).Y, triangleMesh.Vertices.ElementAt(vertexIndces.Item3).Z));
+                                writer.WriteLine("    endloop");
+                                writer.WriteLine("  endfacet");
 
-                            contents = contents.Append("  facet normal " + normal.X.ToString("e") + " " + normal.Y.ToString("e") + " " + normal.Z.ToString("e"));
-                            contents = contents.Append("    outer loop");
+                                ii++;
+                            }
 
-                            Point vertex1 = triangleMesh.Vertices.ElementAtOrDefault(vertexIndex.Item1);
-                            contents = contents.Append("      vertex " + vertex1.X.ToString("e") + " " + vertex1.Y.ToString("e") + " " + vertex1.Z.ToString("e"));
+                            // フッタ書き込み
+                            string footer = string.Empty;
+                            writer.WriteLine("endsolid " + footer);
 
-                            Point vertex2 = triangleMesh.Vertices.ElementAtOrDefault(vertexIndex.Item2);
-                            contents = contents.Append("      vertex " + vertex2.X.ToString("e") + " " + vertex2.Y.ToString("e") + " " + vertex2.Z.ToString("e"));
-
-                            Point vertex3 = triangleMesh.Vertices.ElementAtOrDefault(vertexIndex.Item3);
-                            contents = contents.Append("      vertex " + vertex3.X.ToString("e") + " " + vertex3.Y.ToString("e") + " " + vertex3.Z.ToString("e"));
-
-                            contents = contents.Append("    endloop");
-
-                            contents = contents.Append("  endfacet");
-
-                            ii++;
+                            // 頂点データをテキストに変換
+                            string ToText(double x, double y, double z)
+                            {
+                                return
+                                x.ToString("e") + " " +
+                                y.ToString("e") + " " +
+                                z.ToString("e");
+                            }
                         }
-                    }
-
-                    // フッター
-                    contents = contents.Append("endsolid ");
-
-                    // ファイル書き込み
-                    File.AppendAllLines(filePath, contents);
+                    });
                 }
-            });
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
         }
     }
 }
