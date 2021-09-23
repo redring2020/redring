@@ -17,8 +17,9 @@ namespace RedRing.Framework.IO
         /// <summary>
         /// テキスト(ASCII)形式でのSTLファイル書き込み
         /// </summary>
+        /// <param name="triangleMeshes">三角形メッシュ</param>
         /// <param name="filePath">ファイルパス</param>
-        /// <returns>正常終了した場合は true、その他の場合は false</returns>
+        /// <returns></returns>
         public static async Task WriteAsciiAsync(IEnumerable<TriangleMesh> triangleMeshes, string filePath)
         {
             // filePath が入っていない場合はエラーとする
