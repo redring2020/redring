@@ -48,7 +48,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         {
             Vertices = vertices;
             VertexIndices = vertexIndices;
-            VertexNormals = new Vector[] { };
+            VertexNormals = Enumerable.Repeat(new Vector(), vertexIndices.Count());
         }
     }
 }

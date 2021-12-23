@@ -51,6 +51,9 @@ namespace RedRing.ViewModel
                                     case 1:
                                         await STLFile.WriteAsciiAsync(ƒ‚ƒfƒ‹.GetTriangleMeshes(), path);
                                         break;
+                                    case 2:
+                                        await STLFile.WriteBinaryAsync(ƒ‚ƒfƒ‹.GetTriangleMeshes(), path);
+                                        break;
                                     default:
                                         break;
                                 }

@@ -30,7 +30,7 @@ namespace RedRing
             Messenger.Default.Register<FileSaveMessage>(this,
                 message =>
                 {
-                    var dialog = new SaveFileDialog { DefaultExt = "STLアスキーファイル(*.stl) | *.stl", Filter = "STLアスキーファイル (*.stl)|*.stl|全てのファイル (*.*)|*.*" };
+                    var dialog = new SaveFileDialog { DefaultExt = "STLアスキーファイル(*.stl) | *.stl", Filter = "STLアスキーファイル (*.stl)|*.stl|STLバイナリファイル (*.stl)|*.stl" };
 
                     if (dialog.ShowDialog() == true)
                     {
