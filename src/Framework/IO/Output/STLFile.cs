@@ -106,7 +106,7 @@ namespace RedRing.Framework.IO
                 {
                     await Task.Run(() =>
                     {
-                        byte[] header = new byte[80];
+                        char[] header = new char[80];
 
                         // ヘッダ書き込み
                         writer.Write(header);
@@ -131,15 +131,15 @@ namespace RedRing.Framework.IO
 
                             foreach (var vertexIndces in triangleMesh.VertexIndices)
                             {
-                                writer.Write(triangleMesh.VertexNormals.ElementAtOrDefault(i).X);
-                                writer.Write(triangleMesh.VertexNormals.ElementAtOrDefault(i).Y);
-                                writer.Write(triangleMesh.VertexNormals.ElementAtOrDefault(i).Z);
+                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).X);
+                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Y);
+                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Z);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).X);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Y);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Z);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X);
+                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Y);
+                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Z);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).X);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Y);
                                 writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Z);
