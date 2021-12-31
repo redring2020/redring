@@ -15,7 +15,7 @@ RedRing used [mvvmlight](https://github.com/lbugnion/mvvmlight) only.
 
 # Requirement
 
-* C# 7.0
+* .NET Framework 4.7.2
 * MvvmLight 5.4.1.1
 
 # Installation
