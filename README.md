@@ -30,7 +30,7 @@ I don't test environments under Linux and Mac.
 
 * RedRing
 * RedRing Inc.
-* Twitter : https://twitter.com/RedRing19
+* Twitter : https://twitter.com/RedRing1979
 
 # License
 
