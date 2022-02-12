@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace RedRing.Model
 {
@@ -12,13 +12,13 @@ namespace RedRing.Model
             位置.PropertyChanged +=
                 (sender, e) =>
             {
-                RaisePropertyChanged(() => 位置);
+                OnPropertyChanged(nameof(位置));
             };
 
             方向.PropertyChanged +=
     (sender, e) =>
             {
-                RaisePropertyChanged(() => 方向);
+                OnPropertyChanged(nameof(方向));
             };
         }
 

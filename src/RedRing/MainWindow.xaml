@@ -6,7 +6,6 @@
         mc:Ignorable="d" 
         xmlns:view="clr-namespace:RedRing"
         xmlns:model="clr-namespace:RedRing.Model;assembly=RedRing.Model"
-        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
         Title="RedRing" Height="350" Width="525" Icon="/RedRing;component/Resources/RedRing.ico">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top" SelectionChanged="Ribbon_SelectionChanged">

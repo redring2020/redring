@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using RedRing.ViewModel;
 using Microsoft.Win32;
-using System.IO;
 
 namespace RedRing
 {
@@ -16,10 +15,12 @@ namespace RedRing
         {
             InitializeComponent();
 
-            Messenger.Default.Register<FileOpenMessage>(this,
-                message =>
-            {
-                var dialog = new OpenFileDialog { DefaultExt = "全てのファイル (*.*)|*.*" };
+            DataContext = new MainViewModel();
+
+            WeakReferenceMessenger.Default.Register<FileOpenMessage>(this,
+                (_, message) =>
+                {
+                    var dialog = new OpenFileDialog { DefaultExt = "全てのファイル (*.*)|*.*" };
 
                 if (dialog.ShowDialog() == true)
                 {
@@ -27,8 +28,8 @@ namespace RedRing
                 }
             });
 
-            Messenger.Default.Register<FileSaveMessage>(this,
-                message =>
+            WeakReferenceMessenger.Default.Register<FileSaveMessage>(this,
+                (_, message) =>
                 {
                     var dialog = new SaveFileDialog { DefaultExt = "STLアスキーファイル(*.stl) | *.stl", Filter = "STLアスキーファイル (*.stl)|*.stl|STLバイナリファイル (*.stl)|*.stl" };
 

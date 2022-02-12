@@ -3,6 +3,7 @@
 namespace RedRing.Model.Test
 {
     [TestFixture]
+    [System.Obsolete]
     public class ベクトルのテスト : AssertionHelper
     {
         ベクトル テスト対象;

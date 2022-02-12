@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using RedRing.Framework.Geometry.Double.Geometry3D;
 
 namespace RedRing.Model
@@ -26,7 +26,7 @@ namespace RedRing.Model
             }
             set
             {
-                Set(ref x, value);
+                SetProperty(ref x, value);
             }
         }
         private double y = 0;
@@ -38,7 +38,7 @@ namespace RedRing.Model
             }
             set
             {
-                Set(ref y, value);
+                SetProperty(ref y, value);
             }
         }
         private double z = 0;
@@ -50,7 +50,7 @@ namespace RedRing.Model
             }
             set
             {
-                Set(ref z, value);
+                SetProperty(ref z, value);
             }
         }
 

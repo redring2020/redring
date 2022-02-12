@@ -1,17 +1,17 @@
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using RedRing.Model;
 using RedRing.Framework.IO;
 
 namespace RedRing.ViewModel
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ObservableRecipient
     {
         public ‹óŠÔ ƒ‚ƒfƒ‹ { get; private set; }
 
     public MainViewModel()
-            : base(Messenger.Default)
+            : base(WeakReferenceMessenger.Default)
         {
             ƒ‚ƒfƒ‹ = new ‹óŠÔ();
 
@@ -19,7 +19,7 @@ namespace RedRing.ViewModel
 
             Inport = new RelayCommand(
                 () => {
-                    MessengerInstance.Send(
+                    Messenger.Send(
                         new FileOpenMessage(
                             async path =>
                     {
@@ -42,7 +42,7 @@ namespace RedRing.ViewModel
             Export = new RelayCommand(
                 () =>
                 {
-                    MessengerInstance.Send(
+                    Messenger.Send(
                         new FileSaveMessage(
                             async (path, filterIndex) =>
                             {

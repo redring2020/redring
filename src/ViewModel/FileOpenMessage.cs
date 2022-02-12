@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Messaging;
 
 namespace RedRing.ViewModel
 {
-    public class FileOpenMessage : MessageBase
+    public class FileOpenMessage
     {
         public FileOpenMessage(Func<string, Task> callback)
         {
