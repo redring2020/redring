@@ -11,12 +11,12 @@ This animation is a "rotation 3D object"!
 
 # Features
 
-RedRing used [mvvmlight](https://github.com/lbugnion/mvvmlight) only.
+RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm) only.
 
 # Requirement
 
-* .NET Framework 4.7.2
-* MvvmLight 5.4.1.1
+* .NET Standard 2.0 and .NET 5
+* Microsoft.Toolkit.Mvvm 7.1.2
 
 # Installation
 
