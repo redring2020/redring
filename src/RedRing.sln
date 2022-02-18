@@ -46,10 +46,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attribute", "Framework\Attr
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{EF9BCBDC-FB73-4F26-9D11-B29503EE50DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelのテスト", "Modelのテスト\Modelのテスト.csproj", "{C9DC6D03-3D03-4E85-AAF3-D0FD372BDA05}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelのテスト", "ViewModelのテスト\ViewModelのテスト.csproj", "{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,14 +96,6 @@ Global
 		{EF9BCBDC-FB73-4F26-9D11-B29503EE50DD}.Debug|Any CPU.Build.0 = Debug
 		{EF9BCBDC-FB73-4F26-9D11-B29503EE50DD}.Release|Any CPU.ActiveCfg = Release
 		{EF9BCBDC-FB73-4F26-9D11-B29503EE50DD}.Release|Any CPU.Build.0 = Release
-		{C9DC6D03-3D03-4E85-AAF3-D0FD372BDA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9DC6D03-3D03-4E85-AAF3-D0FD372BDA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9DC6D03-3D03-4E85-AAF3-D0FD372BDA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9DC6D03-3D03-4E85-AAF3-D0FD372BDA05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99EB5CC8-8662-458F-8064-7AA5C7BBEF9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
