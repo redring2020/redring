@@ -9,10 +9,10 @@
   <Identity
     Name="f51bb544-4e71-4be7-8c63-ba62d510689c"
     Publisher="CN=takatsu"
-    Version="1.0.1.0" />
+    Version="1.0.2.0" />
 
   <Properties>
-    <DisplayName>MSIX_Setup_Package</DisplayName>
+    <DisplayName>RedRing</DisplayName>
     <PublisherDisplayName>takatsu</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
