@@ -44,7 +44,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Element", "Framework\Elemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attribute", "Framework\Attribute\Attribute.csproj", "{43566F81-B1B8-4481-A4FA-539BC67D970B}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "MSIX_Setup_Package", "MSIX_Setup_Package\MSIX_Setup_Package.wapproj", "{95D78D02-78EA-4D0E-83E5-1847229D300D}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "RedRing_Setup_Package", "RedRing_Setup_Package\RedRing_Setup_Package.wapproj", "{95D78D02-78EA-4D0E-83E5-1847229D300D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
