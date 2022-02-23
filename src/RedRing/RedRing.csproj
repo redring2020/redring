@@ -12,6 +12,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject></StartupObject>
+    <RepositoryUrl>https://github.com/redring1979/RedRing</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
