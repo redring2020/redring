@@ -22,6 +22,7 @@ RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.T
 
 # :construction:Usage
 
+'$git clone https://github.com/redring1979/RedRing.git'
 # :memo:Note
 
 I don't test environments under Linux and Mac.
