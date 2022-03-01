@@ -15,7 +15,7 @@ RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.T
 
 # :rocket:Requirement
 
-* .NET Standard 2.0 and .NET 5
+* .NET Standard 2.1 and .NET 6
 * Microsoft.Toolkit.Mvvm 7.1.2
 
 # :office:Installation
