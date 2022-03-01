@@ -31,7 +31,11 @@ I don't test environments under Linux and Mac.
 
 * RedRing
 * RedRing Inc.
-* Twitter : https://twitter.com/RedRing1979
+* Twitter   : https://twitter.com/RedRing1979
+* Facebook  : https://www.facebook.com/redring1979
+* Instagram : https://www.instagram.com/redring1979/
+* Qiita     : https://qiita.com/redring
+* ameblo    : https://ameblo.jp/redring1979/
 
 # :notebook:License
 
