@@ -15,6 +15,9 @@
     <RepositoryUrl>https://github.com/redring1979/RedRing</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="RedRing.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +37,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RedRing.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\RedRing.ico" />
