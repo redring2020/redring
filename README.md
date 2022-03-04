@@ -15,7 +15,7 @@ RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.T
 
 # :rocket:Requirement
 
-* .NET Standard 2.1 and .NET 6
+* [.NET Standard 2.1](https://docs.microsoft.com/ja-jp/dotnet/standard/net-standard?tabs=net-standard-1-0) and .NET 6
 * Microsoft.Toolkit.Mvvm 7.1.2
 
 # :office:Installation
@@ -31,11 +31,11 @@ I don't test environments under Linux and Mac.
 
 * RedRing
 * RedRing Inc.
-* Twitter : https://twitter.com/RedRing1979
-* Facebook : https://www.facebook.com/redring1979
-* Instagram : https://www.instagram.com/redring1979
-* Qiita : https://qiita.com/redring
-* ameblo : https://ameblo.jp/redring1979
+* [Twitter RedRing](https://twitter.com/RedRing1979)
+* [Facebook RedRing](https://www.facebook.com/redring1979)
+* [Instagram RedRing](https://www.instagram.com/redring1979)
+* [Qiita RedRing](https://qiita.com/redring)
+* [ameblo RedRing](https://ameblo.jp/redring1979)
 
 # :notebook:License
 
