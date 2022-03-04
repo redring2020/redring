@@ -11,12 +11,12 @@ This animation is a "rotation 3D object"!
 
 # :mailbox:Features
 
-RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm) only.
+RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm/) only.
 
 # :rocket:Requirement
 
-* .NET Standard 2.0 and .NET 5
-* Microsoft.Toolkit.Mvvm 7.1.2
+* [.NET Standard 2.1 and .NET 6](https://docs.microsoft.com/ja-jp/dotnet/fundamentals/)
+* [Microsoft.Toolkit.Mvvm 7.1.2](https://docs.microsoft.com/en-us/windows/communitytoolkit/mvvm/introduction/)
 
 # :office:Installation
 
@@ -31,7 +31,11 @@ I don't test environments under Linux and Mac.
 
 * RedRing
 * RedRing Inc.
-* Twitter : https://twitter.com/RedRing1979
+* [Twitter RedRing](https://twitter.com/RedRing1979)
+* [Facebook RedRing](https://www.facebook.com/redring1979)
+* [Instagram RedRing](https://www.instagram.com/redring1979)
+* [Qiita RedRing](https://qiita.com/redring)
+* [ameblo RedRing](https://ameblo.jp/redring1979)
 
 # :notebook:License
 
