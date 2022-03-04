@@ -11,12 +11,12 @@ This animation is a "rotation 3D object"!
 
 # :mailbox:Features
 
-RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm) only.
+RedRing used [Microsoft.Toolkit.Mvvm](https://www.nuget.org/packages/Microsoft.Toolkit.Mvvm/) only.
 
 # :rocket:Requirement
 
-* [.NET Standard 2.1](https://docs.microsoft.com/ja-jp/dotnet/standard/net-standard?tabs=net-standard-1-0) and .NET 6
-* Microsoft.Toolkit.Mvvm 7.1.2
+* [.NET Standard 2.1 and .NET 6](https://docs.microsoft.com/ja-jp/dotnet/fundamentals/)
+* [Microsoft.Toolkit.Mvvm 7.1.2](https://docs.microsoft.com/en-us/windows/communitytoolkit/mvvm/introduction/)
 
 # :office:Installation
 
