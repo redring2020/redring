@@ -102,11 +102,14 @@ namespace RedRing.Framework.IO
             try
             {
                 // 上書きモードでファイルを開く
-                using (var writer = new StreamWriter(filePath, false, Encoding.Unicode))
+                using (var stream = File.Open(filePath, FileMode.Create))
                 {
-                    await Task.Run(() =>
+                    using (var writer = new BinaryWriter(stream, Encoding.Unicode))
                     {
-                        char[] header = new char[80];
+                        await Task.Run(() =>
+                        {
+                            byte[] header = new byte[80];
+                            header = Enumerable.Repeat(byte.MinValue, 80).ToArray();
 
                         // ヘッダ書き込み
                         writer.Write(header);
@@ -114,42 +117,44 @@ namespace RedRing.Framework.IO
                         // ファセットの枚数書き込み
                         uint size = 0;
 
-                        foreach (var triangleMesh in triangleMeshes)
-                        {
-                            size += (uint)triangleMesh.VertexIndices.Count();
-                        }
+                            foreach (var triangleMesh in triangleMeshes)
+                            {
+                                size += (uint)triangleMesh.VertexIndices.Count();
+                            }
 
-                        writer.Write(size);
+                            writer.Write(size);
 
                         // 全ファセット書き込み
                         ushort buff = 0;
 
                         // 全ファセットデータ書き込み
                         foreach (var triangleMesh in triangleMeshes)
-                        {
-                            int i = 0;
-
-                            foreach (var vertexIndces in triangleMesh.VertexIndices)
                             {
-                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).X);
-                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Y);
-                                writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Z);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).X);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Y);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Z);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Y);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Z);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).X);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Y);
-                                writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Z);
+                                int i = 0;
 
-                                writer.Write(buff);
+                                foreach (var vertexIndces in triangleMesh.VertexIndices)
+                                {
 
-                                i++;
+                                    writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).X);
+                                    writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Y);
+                                    writer.Write((float)triangleMesh.VertexNormals.ElementAtOrDefault(i).Z);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).X);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Y);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item1).Z);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).X);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Y);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item2).Z);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).X);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Y);
+                                    writer.Write((float)triangleMesh.Vertices.ElementAtOrDefault(vertexIndces.Item3).Z);
+
+                                    writer.Write(buff);
+
+                                    i++;
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
             }
             catch (Exception)
