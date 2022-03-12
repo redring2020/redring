@@ -109,13 +109,12 @@ namespace RedRing.Framework.IO
                         await Task.Run(() =>
                         {
                             byte[] header = new byte[80];
-                            header = Enumerable.Repeat(byte.MinValue, 80).ToArray();
 
-                        // ヘッダ書き込み
-                        writer.Write(header);
+                            // ヘッダ書き込み
+                            writer.Write(header);
 
-                        // ファセットの枚数書き込み
-                        uint size = 0;
+                            // ファセットの枚数書き込み
+                            uint size = 0;
 
                             foreach (var triangleMesh in triangleMeshes)
                             {
@@ -124,11 +123,11 @@ namespace RedRing.Framework.IO
 
                             writer.Write(size);
 
-                        // 全ファセット書き込み
-                        ushort buff = 0;
+                            // 全ファセット書き込み
+                            ushort buff = 0;
 
-                        // 全ファセットデータ書き込み
-                        foreach (var triangleMesh in triangleMeshes)
+                            // 全ファセットデータ書き込み
+                            foreach (var triangleMesh in triangleMeshes)
                             {
                                 int i = 0;
 
