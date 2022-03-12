@@ -1,0 +1,2 @@
+MainPackage=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.0.0_AnyCPU_Debug.msix
+SymbolPackage=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\obj\Debug\Symbols\RedRingSetupPackage_1.0.0.0_AnyCPU_Debug.appxsym

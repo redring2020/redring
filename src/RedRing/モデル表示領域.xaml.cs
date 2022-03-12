@@ -15,7 +15,8 @@ namespace RedRing
     /// </summary>
     public partial class モデル表示領域 : UserControl
     {
-        DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(200) };
+        private static readonly DispatcherTimer dispatcherTimer = new DispatcherTimer { Interval = new TimeSpan(200) };
+        readonly DispatcherTimer timer = dispatcherTimer;
         private Matrix3D matrix = Matrix3D.Identity;
         private bool isDrag = false;
         private enum DragType

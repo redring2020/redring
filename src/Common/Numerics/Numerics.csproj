@@ -2,15 +2,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>RedRing.Framework.Topology</RootNamespace>
-    <AssemblyName>RedRing.Framework.Topology</AssemblyName>
+    <RootNamespace>RedRing.Common.Numerics</RootNamespace>
+    <AssemblyName>RedRing.Common.Numerics</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>8.0</LangVersion>
-    <BaseOutputPath>bin\Framework\</BaseOutputPath>
+    <BaseOutputPath>bin\Common\</BaseOutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Geometry\Geometry.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>

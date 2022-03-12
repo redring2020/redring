@@ -1,4 +1,4 @@
-﻿using RedRing.Framework.Numerics.LinerAlgebra.Double;
+﻿using RedRing.Common.Numerics.LinerAlgebra.Double;
 
 namespace RedRing.Framework.Geometry.Double.Geometry3D
 {

@@ -5,10 +5,10 @@
     <RootNamespace>RedRing.Framework.Element</RootNamespace>
     <AssemblyName>RedRing.Framework.Element</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <BaseOutputPath>bin\Framework\</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geometry\Geometry.csproj" />
-    <ProjectReference Include="..\Numerics\Numerics.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

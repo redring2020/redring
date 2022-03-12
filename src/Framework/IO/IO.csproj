@@ -6,8 +6,10 @@
     <AssemblyName>RedRing.Framework.IO</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>8.0</LangVersion>
+    <BaseOutputPath>bin\Framework\</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Numerics\Numerics.csproj" />
     <ProjectReference Include="..\Geometry\Geometry.csproj" />
   </ItemGroup>
   <ItemGroup>
