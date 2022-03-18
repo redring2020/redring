@@ -9,7 +9,7 @@
   <Identity
     Name="8d9ed9b6-4353-488f-a178-24db9ee589c2"
     Publisher="CN=takatsu"
-    Version="1.0.2.0" />
+    Version="1.0.3.0" />
 
   <Properties>
     <DisplayName>RedRingSetupPackage</DisplayName>
