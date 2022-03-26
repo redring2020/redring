@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RedRing.Framework.IO;
 
-namespace RedRing.UnitTestIO
+namespace RedRing.UnitTest.Framework.IO
 {
     [TestClass]
     public class TestSTLFile : AssertFailedException
