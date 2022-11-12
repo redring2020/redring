@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="8d9ed9b6-4353-488f-a178-24db9ee589c2"
-    Publisher="CN=takatsu"
-    Version="1.0.3.0" />
+    Name="8595RedRing.RedRing"
+    Publisher="CN=C0490C8B-0A69-4ED3-B672-87F6FBE2189B"
+    Version="0.0.2.0" />
 
   <Properties>
-    <DisplayName>RedRingSetupPackage</DisplayName>
-    <PublisherDisplayName>takatsu</PublisherDisplayName>
+    <DisplayName>RedRing</DisplayName>
+    <PublisherDisplayName>RedRing</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
