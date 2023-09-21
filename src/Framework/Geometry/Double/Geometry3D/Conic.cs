@@ -6,7 +6,7 @@
     public struct Conic : IGeometry, ISurface, I3D
     {
         /// <summary>
-        /// 配置位置
+        /// 配置point
         /// </summary>
         public Axis Position { get; }
 
@@ -23,7 +23,7 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="position">配置位置</param>
+        /// <param name="position">配置point</param>
         /// <param name="radius">半径</param>
         /// <param name="semiAngle">片側の角度</param>
         public Conic(Axis position, double radius, double semiAngle)

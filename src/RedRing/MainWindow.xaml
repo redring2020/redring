@@ -16,27 +16,11 @@
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="モデル">
-              <RibbonGroup Header="追加">
-                <RibbonButton Label="立方体" Command="{Binding 立方体を追加する, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
-              </RibbonGroup>
-            </RibbonTab>
-            <RibbonTab Header="カメラ">
-                <RibbonGroup Header="状態">
-                    <view:ベクトル表示 Header="位置" Source="{Binding モデル.カメラ.位置}"/>
-                    <view:ベクトル表示 Header="方向" Source="{Binding モデル.カメラ.方向}"/>
+                <RibbonGroup Header="追加">
+                    <RibbonButton Label="立方体" Command="{Binding AddCube, Mode=OneWay}" SmallImageSource="Icon/cube.png" LargeImageSource="Icon/cube.png"/>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
-        <ListBox DockPanel.Dock="Right" ItemsSource="{Binding モデル.表示モデル}">
-            <ListBox.Resources>
-                <DataTemplate DataType="{x:Type model:立方体}">
-                    <view:ベクトル表示 d:DataContext="{d:DesignInstance Type=model:立方体}" Header="位置" Source="{Binding 位置}"/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type model:TriangleMesh}">
-                    <view:ベクトル表示 d:DataContext="{d:DesignInstance Type=model:TriangleMesh}" Header="位置" Source="{Binding 位置}"/>
-                </DataTemplate>
-            </ListBox.Resources>
-        </ListBox>
-        <view:モデル表示領域 DataContext="{Binding モデル, Mode=OneWay}"/>
+        <view:ModelDisplayArea DataContext="{Binding Model, Mode=OneWay}"/>
     </DockPanel>
 </Window>

@@ -8,14 +8,14 @@ namespace RedRing.ViewModel
 {
     public class MainViewModel : ObservableRecipient
     {
-        public 空間 モデル { get; private set; }
+        public Space Model { get; private set; }
 
     public MainViewModel()
             : base(WeakReferenceMessenger.Default)
         {
-            モデル = new 空間();
+            Model = new Space();
 
-            立方体を追加する = new RelayCommand(() => モデル.モデルを追加する(new 立方体()));
+            AddCube = new RelayCommand(() => Model.AddModel(new Cube()));
 
             Inport = new RelayCommand(
                 () => {
@@ -29,11 +29,11 @@ namespace RedRing.ViewModel
                         {
                             case "stl":
                                 var triangleMesh = await STLFile.LoadAsync(path);
-                                モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                                Model.AddModel(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
                                 break;
                             case "obj":
                                 triangleMesh = await OBJFile.LoadAsync(path);
-                                モデル.モデルを追加する(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
+                                Model.AddModel(new TriangleMesh(triangleMesh.Vertices, triangleMesh.VertexIndices, triangleMesh.VertexNormals));
                                 break;
                         }
                     }));
@@ -49,10 +49,10 @@ namespace RedRing.ViewModel
                                 switch(filterIndex)
                                 {
                                     case 1:
-                                        await STLFile.WriteAsciiAsync(モデル.GetTriangleMeshes(), path);
+                                        await STLFile.WriteAsciiAsync(Model.GetTriangleMeshes(), path);
                                         break;
                                     case 2:
-                                        await STLFile.WriteBinaryAsync(モデル.GetTriangleMeshes(), path);
+                                        await STLFile.WriteBinaryAsync(Model.GetTriangleMeshes(), path);
                                         break;
                                     default:
                                         break;
@@ -61,7 +61,7 @@ namespace RedRing.ViewModel
                 });
         }
 
-        public RelayCommand 立方体を追加する { get; private set; }
+        public RelayCommand AddCube { get; private set; }
 
         public RelayCommand Inport { get; private set; }
 

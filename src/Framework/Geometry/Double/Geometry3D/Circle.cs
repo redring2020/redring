@@ -6,7 +6,7 @@
     public struct Circle : IGeometry, ICurve, I3D
     {
         /// <summary>
-        /// 配置位置
+        /// 配置point
         /// </summary>
         public Axis Position { get; }
 
@@ -18,7 +18,7 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="position">配置位置</param>
+        /// <param name="position">配置point</param>
         /// <param name="radius">半径</param>
         public Circle(Axis position, double radius)
         {

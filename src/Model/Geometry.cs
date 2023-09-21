@@ -5,20 +5,20 @@ namespace RedRing.Model
 {
     public class Geometry
     {
-        public IEnumerable<ベクトル> Positions { get;private set; }
+        public IEnumerable<Vector> Positions { get;private set; }
 
         public IEnumerable<Tuple<int, int, int>> TriangleIndices { get;private set; }
 
-        public IEnumerable<ベクトル> Normals { get;private set; }
+        public IEnumerable<Vector> Normals { get;private set; }
 
-        public Geometry(IEnumerable<ベクトル> positions, IEnumerable<Tuple<int, int, int>> triangleIndices)
-            :this(positions, triangleIndices, new ベクトル[] { })
+        public Geometry(IEnumerable<Vector> positions, IEnumerable<Tuple<int, int, int>> triangleIndices)
+            :this(positions, triangleIndices, new Vector[] { })
         {
             Positions = positions;
             TriangleIndices = triangleIndices;
         }
 
-        public Geometry(IEnumerable<ベクトル> positions, IEnumerable<Tuple<int, int, int>> triangleIndices, IEnumerable<ベクトル> normals)
+        public Geometry(IEnumerable<Vector> positions, IEnumerable<Tuple<int, int, int>> triangleIndices, IEnumerable<Vector> normals)
         {
             Positions = positions;
             TriangleIndices = triangleIndices;

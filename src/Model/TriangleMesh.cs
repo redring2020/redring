@@ -12,7 +12,7 @@ namespace RedRing.Model
 
         Geometry geometry;
 
-        public ベクトル 位置 { get; private  set; }
+        public Vector point { get; private  set; }
         public Geometry Geometry
         {
             get
@@ -21,7 +21,7 @@ namespace RedRing.Model
                 {
                     geometry = new Geometry(
                     from newGeometory in originalGeometry.Positions
-                    select 位置 + newGeometory,
+                    select point + newGeometory,
                     originalGeometry.TriangleIndices);
                 }
                 return geometry;
@@ -33,17 +33,17 @@ namespace RedRing.Model
         /// </summary>
         /// <param name="vertexes">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
-        public TriangleMesh(IEnumerable<Point> vertexes, IEnumerable<Tuple<int, int, int>> vertexIndices)
+        public TriangleMesh(IEnumerable<Framework.Geometry.Double.Geometry3D.Point> Vertices, IEnumerable<Tuple<int, int, int>> VertexIndices)
         {
-            IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            if (vertexes.Any())
+            IEnumerable<Vector> vertices = new Vector[] { };
+            if (Vertices.Any())
             {
-                頂点群 = vertexes.Select(_ => new ベクトル(_.X, _.Y, _.Z));
+                vertices = Vertices.Select(_ => new Vector(_.X, _.Y, _.Z));
             }
 
-            originalGeometry = new Geometry(頂点群, vertexIndices, new ベクトル[] { });
-            位置 = new ベクトル(0, 0, 0);
-            位置.PropertyChanged +=
+            originalGeometry = new Geometry(vertices, VertexIndices, new Vector[] { });
+            point = new Vector(0, 0, 0);
+            point.PropertyChanged +=
                 (sender, e) =>
                 {
                     geometry = null;
@@ -56,23 +56,23 @@ namespace RedRing.Model
         /// <param name="vertexes">頂点群</param>
         /// <param name="vertexIndices">頂点インデックス</param>
         /// <param name="vertexNormals">頂点の法線方向</param>
-        public TriangleMesh(IEnumerable<Point> vertexes, IEnumerable<Tuple<int, int, int>> vertexIndices, IEnumerable<Vector> vertexNormals)
+        public TriangleMesh(IEnumerable<Framework.Geometry.Double.Geometry3D.Point> Vertices, IEnumerable<Tuple<int, int, int>> VertexIndices, IEnumerable<Framework.Geometry.Double.Geometry3D.Vector> VertexNormals)
         {
-            IEnumerable<ベクトル> 頂点群 = new ベクトル[] { };
-            if (vertexes.Any())
+            IEnumerable<Vector> vertices = new Vector[] { };
+            if (Vertices.Any())
             {
-                頂点群 = vertexes.Select(_ => new ベクトル(_.X, _.Y, _.Z));
+                vertices = Vertices.Select(_ => new Vector(_.X, _.Y, _.Z));
             }
 
-            IEnumerable<ベクトル> 頂点法線方向群 = new ベクトル[] { };
-            if (vertexNormals.Any())
+            IEnumerable<Vector> vertexNormals = new Vector[] { };
+            if (VertexNormals.Any())
             {
-                頂点法線方向群 = vertexNormals.Select(_ => new ベクトル(_.X, _.Y, _.Z));
+                vertexNormals = VertexNormals.Select(_ => new Vector(_.X, _.Y, _.Z));
             }
 
-            originalGeometry = new Geometry(頂点群, vertexIndices, 頂点法線方向群);
-            位置 = new ベクトル(0, 0, 0);
-            位置.PropertyChanged +=
+            originalGeometry = new Geometry(vertices, VertexIndices, vertexNormals);
+            point = new Vector(0, 0, 0);
+            point.PropertyChanged +=
                 (sender, e) =>
                 {
                     geometry = null;

@@ -12,7 +12,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
     public struct Sphere : IGeometry, ISurface, I3D
     {
         /// <summary>
-        /// 配置位置
+        /// 配置point
         /// </summary>
         public Axis Position { get; }
 
@@ -24,7 +24,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="position">配置位置</param>
+        /// <param name="position">配置point</param>
         /// <param name="radius">半径</param>
         public Sphere(Axis position, double radius)
         {

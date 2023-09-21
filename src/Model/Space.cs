@@ -6,20 +6,20 @@ using RedRing.Framework.Geometry.Double.Geometry3D;
 
 namespace RedRing.Model
 {
-    public class 空間
+    public class Space
     {
-        public ObservableCollection<I3DModel> 表示モデル { get; private set; }
-        public カメラ カメラ { get;private set; }
+        public ObservableCollection<I3DModel> DisplayModel { get; private set; }
+        public Camera Camera { get;private set; }
 
-        public 空間()
+        public Space()
         {
-            表示モデル = new ObservableCollection<I3DModel>();
-            カメラ = new カメラ();
+            DisplayModel = new ObservableCollection<I3DModel>();
+            Camera = new Camera();
         }
 
-        public void モデルを追加する(I3DModel モデル)
+        public void AddModel(I3DModel model)
         {
-            表示モデル.Add(モデル);
+            DisplayModel.Add(model);
         }
 
         /// <summary>
@@ -29,12 +29,12 @@ namespace RedRing.Model
         public IEnumerable<RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh> GetTriangleMeshes()
         {
             IEnumerable<RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh> triangleMeshes = new RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh[] { };
-            foreach (TriangleMesh model in 表示モデル)
+            foreach (TriangleMesh model in DisplayModel)
             {
-                IEnumerable<Point> vertexes = new Point[] { };
+                IEnumerable<Framework.Geometry.Double.Geometry3D.Point> vertexes = new Framework.Geometry.Double.Geometry3D.Point[] { };
                 if (model.Geometry.Positions.Any())
                 {
-                    vertexes = model.Geometry.Positions.Select(_ => new Point(_.X, _.Y, _.Z));
+                    vertexes = model.Geometry.Positions.Select(_ => new Framework.Geometry.Double.Geometry3D.Point(_.X, _.Y, _.Z));
                 }
 
                 triangleMeshes = triangleMeshes.Append(new RedRing.Framework.Geometry.Double.Geometry3D.TriangleMesh(vertexes, model.Geometry.TriangleIndices)).ToList();

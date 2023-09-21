@@ -11,9 +11,9 @@ using RedRing.Model;
 namespace RedRing
 {
     /// <summary>
-    /// モデル表示領域.xaml の相互作用ロジック
+    /// ModelDisplayArea.xaml の相互作用ロジック
     /// </summary>
-    public partial class モデル表示領域 : UserControl
+    public partial class ModelDisplayArea : UserControl
     {
         private static readonly DispatcherTimer dispatcherTimer = new DispatcherTimer { Interval = new TimeSpan(200) };
         readonly DispatcherTimer timer = dispatcherTimer;
@@ -24,14 +24,14 @@ namespace RedRing
             None, Rotate, Translate, Scale
         }
         DragType dragType = DragType.None;
-        private Point offset;
+        private System.Windows.Point offset;
         const double AngleRatio = 0.5;
 
-        public new 空間 DataContext
+        public new Space DataContext
         {
             get
             {
-                return base.DataContext as 空間;
+                return base.DataContext as Space;
             }
             set
             {
@@ -39,7 +39,7 @@ namespace RedRing
             }
         }
 
-        public モデル表示領域()
+        public ModelDisplayArea()
         {
             InitializeComponent();
 
@@ -60,7 +60,7 @@ namespace RedRing
                     return;
                 }
 
-                foreach (var 表示要素 in DataContext.表示モデル)
+                foreach (var displayElement in DataContext.DisplayModel)
                 {
                     group.Children.Add(
                     new GeometryModel3D
@@ -69,10 +69,10 @@ namespace RedRing
                     new MeshGeometry3D
                     {
                         Positions = new Point3DCollection(
-                                from position in ((表示要素.Geometry as Model.Geometry)).Positions
+                                from position in ((displayElement.Geometry as Model.Geometry)).Positions
                                 select new Point3D(position.X, position.Y, position.Z)),
                         TriangleIndices = new Int32Collection(
-                                from triangleIndex in ((表示要素.Geometry as Model.Geometry)).TriangleIndices
+                                from triangleIndex in ((displayElement.Geometry as Model.Geometry)).TriangleIndices
                                 from index in new[] { triangleIndex.Item1, triangleIndex.Item2, triangleIndex.Item3 }
                                 select index),
                         Normals = new Vector3DCollection()
@@ -89,7 +89,7 @@ namespace RedRing
             timer.Start();
         }
 
-        private void mouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ModelDisplayAreaMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = true;
             dragType = DragType.Rotate;
@@ -97,13 +97,13 @@ namespace RedRing
         }
 
         // 原点から delta までの符号付き距離を求めます。
-        static double GetDistance(Vector start, Vector delta)
+        static double GetDistance(System.Windows.Vector start, System.Windows.Vector delta)
         {
-            var angle = Vector.AngleBetween(delta, start);
+            var angle = System.Windows.Vector.AngleBetween(delta, start);
             return start.Length * Math.Sin(angle * Math.PI / 180);
         }
 
-        private void mouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        private void ModelDisplayAreaMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (isDrag == true)
             {
@@ -114,11 +114,11 @@ namespace RedRing
                 switch (dragType)
                 {
                     case DragType.Rotate:
-                        var distance = GetDistance((Vector)offset, delta);
-                        matrixTransform.Rotate(new Vector3D(delta.Y, delta.X, distance), AngleRatio * deltaLength);
+                        var distance = GetDistance((System.Windows.Vector)offset, delta);
+                        MatrixTransform.Rotate(new Vector3D(delta.Y, delta.X, distance), AngleRatio * deltaLength);
                         break;
                     case DragType.Translate:
-                        matrixTransform.Translate(new Vector3D(delta.X, delta.Y, 0.0));
+                        MatrixTransform.Translate(new Vector3D(delta.X, delta.Y, 0.0));
                         break;
                     case DragType.Scale:
                         break;
@@ -129,19 +129,19 @@ namespace RedRing
 
         }
 
-        private void mouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ModelDisplayAreaMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = false;
             dragType = DragType.None;
         }
 
-        private void mouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        private void ModelDisplayAreaMouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             isDrag = false;
             dragType = DragType.None;
         }
 
-        private void mouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ModelDisplayAreaMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = true;
             dragType = DragType.Translate;
@@ -149,10 +149,16 @@ namespace RedRing
 
         }
 
-        private void mouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ModelDisplayAreaMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             isDrag = false;
             dragType = DragType.None;
+        }
+
+        private void ModelDisplayAreaMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            isDrag = true;
+            dragType = DragType.Scale;
         }
     }
 

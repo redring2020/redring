@@ -10,14 +10,14 @@ namespace RedRing
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value.GetType() == typeof(ベクトル))
+            if(value.GetType() == typeof(Vector))
             {
-                var ベクトル = value as ベクトル;
+                var ベクトル = value as Vector;
                 return new Vector3D(ベクトル.X, ベクトル.Y, ベクトル.Z);
             }
-            if (value.GetType() == typeof(位置ベクトル))
+            if (value.GetType() == typeof(Point))
             {
-                var ベクトル = value as 位置ベクトル;
+                var ベクトル = value as Point;
                 return new Point3D(ベクトル.X, ベクトル.Y, ベクトル.Z);
             }
             return null;

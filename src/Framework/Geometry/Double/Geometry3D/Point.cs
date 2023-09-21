@@ -8,7 +8,7 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
     public struct Point : IGeometry, IPoint, I3D
     {
         /// <summary>
-        /// デカルト位置
+        /// デカルトpoint
         /// </summary>
         Point3D Position;
 

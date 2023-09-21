@@ -6,6 +6,7 @@
     <AssemblyName>RedRing.Framework.Attribute</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <BaseOutputPath>bin\Framework\</BaseOutputPath>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

@@ -4,24 +4,25 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
          xmlns:model="clr-namespace:RedRing.Model;assembly=RedRing.Model"
-         xmlns:local="clr-namespace:RedRing" x:Class="RedRing.モデル表示領域"
+         xmlns:local="clr-namespace:RedRing" x:Class="RedRing.ModelDisplayArea"
          mc:Ignorable="d" 
          d:DesignHeight="300" d:DesignWidth="300" Loaded="Viewport3D_Loaded"
-         d:DataContext="{d:DesignInstance Type={x:Type model:空間}}"
+         d:DataContext="{d:DesignInstance Type={x:Type model:Space}}"
          Background="Azure"
-         MouseLeftButtonDown="mouseLeftButtonDown"
-         MouseLeftButtonUp="mouseLeftButtonUp"
-         MouseRightButtonDown="mouseRightButtonDown"
-         MouseRightButtonUp="mouseLeftButtonUp"
-         MouseMove="mouseMove"
-         MouseLeave="mouseLeave">
+         MouseLeftButtonDown="ModelDisplayAreaMouseLeftButtonDown"
+         MouseLeftButtonUp="ModelDisplayAreaMouseLeftButtonUp"
+         MouseRightButtonDown="ModelDisplayAreaMouseRightButtonDown"
+         MouseRightButtonUp="ModelDisplayAreaMouseLeftButtonUp"
+         MouseWheel="ModelDisplayAreaMouseWheel"
+         MouseMove="ModelDisplayAreaMouseMove"
+         MouseLeave="ModelDisplayAreaMouseLeave">
     <Grid x:Name="model">
         <Viewport3D>
             <Viewport3D.Resources>
                 <local:ToViewConverter x:Key="ToViewConverter"/>
             </Viewport3D.Resources>
             <Viewport3D.Camera>
-                <PerspectiveCamera LookDirection="{Binding カメラ.方向, Converter={StaticResource ToViewConverter}}" Position="{Binding カメラ.位置, Converter={StaticResource ToViewConverter}}"/>
+                <PerspectiveCamera LookDirection="{Binding Camera.vector, Converter={StaticResource ToViewConverter}}" Position="{Binding Camera.point, Converter={StaticResource ToViewConverter}}"/>
             </Viewport3D.Camera>
             <ModelUIElement3D>
             <Model3DGroup x:Name="group">
@@ -32,7 +33,7 @@
                                 <AxisAngleRotation3D Axis="-0.8,0.3,0.5" Angle="60"/>
                             </RotateTransform3D.Rotation>
                         </RotateTransform3D>
-                        <MatrixTransform3D x:Name="matrixTransform"/>
+                        <MatrixTransform3D x:Name="MatrixTransform"/>
                     </Transform3DGroup>
                 </Model3DGroup.Transform>
                 </Model3DGroup>

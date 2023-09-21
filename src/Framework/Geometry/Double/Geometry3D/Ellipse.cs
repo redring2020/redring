@@ -6,7 +6,7 @@
     public struct Ellipse : IGeometry, ICurve, I3D
     {
         /// <summary>
-        /// 配置位置
+        /// 配置point
         /// </summary>
         public Axis Position { get; }
 
@@ -23,7 +23,7 @@
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="position">配置位置</param>
+        /// <param name="position">配置point</param>
         /// <param name="r1">X軸方向半径</param>
         /// <param name="r2">Y軸方向半径</param>
         public Ellipse(Axis position, double r1, double r2)
