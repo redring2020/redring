@@ -1,6 +1,0 @@
-MainPackage=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.3.0_AnyCPU_Debug.msix
-SymbolPackage=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\obj\Debug\Symbols\RedRingSetupPackage_1.0.3.0_AnyCPU_Debug.appxsym
-ResourcePack=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.3.0_scale-100.msix
-ResourcePack=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.3.0_scale-125.msix
-ResourcePack=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.3.0_scale-150.msix
-ResourcePack=C:\Users\takatsu\source\repos\RedRing\src\RedRingSetupPackage\bin\AnyCPU\Debug\RedRingSetupPackage_1.0.3.0_scale-400.msix

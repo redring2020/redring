@@ -157,8 +157,14 @@ namespace RedRing
 
         private void ModelDisplayAreaMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
         {
-            isDrag = true;
-            dragType = DragType.Scale;
+            var point = e.GetPosition(this);
+            if (e.Delta >0)
+            {
+                MatrixTransform.Scale(1.2);
+            } else if (e.Delta < 0)
+            {
+                MatrixTransform.Scale(1/1.2);
+            }
         }
     }
 
@@ -219,6 +225,13 @@ namespace RedRing
 
             var matrix = transform.Matrix;
             matrix.Translate(offset);
+            transform.Matrix = matrix;
+        }
+
+        public static void Scale(this MatrixTransform3D transform, double scale)
+        {
+            var matrix = transform.Matrix;
+            matrix.Scale(new Vector3D(scale, scale, scale));
             transform.Matrix = matrix;
         }
     }
