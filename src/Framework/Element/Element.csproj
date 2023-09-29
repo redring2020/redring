@@ -6,7 +6,7 @@
     <AssemblyName>RedRing.Framework.Element</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <BaseOutputPath>bin\Framework\</BaseOutputPath>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geometry\Geometry.csproj" />

@@ -12,13 +12,13 @@ namespace RedRing
         {
             if(value.GetType() == typeof(Vector))
             {
-                var ベクトル = value as Vector;
-                return new Vector3D(ベクトル.X, ベクトル.Y, ベクトル.Z);
+                var v = value as Vector;
+                return new Vector3D(v.X, v.Y, v.Z);
             }
             if (value.GetType() == typeof(Point))
             {
-                var ベクトル = value as Point;
-                return new Point3D(ベクトル.X, ベクトル.Y, ベクトル.Z);
+                var p = value as Point;
+                return new Point3D(p.X, p.Y, p.Z);
             }
             return null;
         }
