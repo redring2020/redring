@@ -1,4 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RedRing.Framework.IO;
 using RedRing.Framework.Geometry.Double.Geometry3D;
 

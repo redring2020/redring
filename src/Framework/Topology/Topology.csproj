@@ -5,9 +5,9 @@
     <RootNamespace>RedRing.Framework.Topology</RootNamespace>
     <AssemblyName>RedRing.Framework.Topology</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>10.0</LangVersion>
     <BaseOutputPath>bin\Framework\</BaseOutputPath>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geometry\Geometry.csproj" />

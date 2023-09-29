@@ -11,7 +11,7 @@ using RedRing.Model;
 namespace RedRing
 {
     /// <summary>
-    /// ModelDisplayArea.xaml の相互作用ロジック
+    /// ModelDisplayArea.xamlの相互作用ロジック
     /// </summary>
     public partial class ModelDisplayArea : UserControl
     {
@@ -96,7 +96,7 @@ namespace RedRing
             offset = e.GetPosition(this);
         }
 
-        // 原点から delta までの符号付き距離を求めます。
+        // 原点からdeltaまでの符号付き距離を求めます。
         static double GetDistance(System.Windows.Vector start, System.Windows.Vector delta)
         {
             var angle = System.Windows.Vector.AngleBetween(delta, start);
@@ -159,10 +159,10 @@ namespace RedRing
         {
             if (e.Delta >0)
             {
-                MatrixTransform.Scale(1.2);
+                MatrixTransform.Scale(1.1);
             } else if (e.Delta < 0)
             {
-                MatrixTransform.Scale(1/1.2);
+                MatrixTransform.Scale(1/1.1);
             }
         }
     }
