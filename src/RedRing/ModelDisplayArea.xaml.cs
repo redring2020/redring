@@ -157,7 +157,6 @@ namespace RedRing
 
         private void ModelDisplayAreaMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
         {
-            var point = e.GetPosition(this);
             if (e.Delta >0)
             {
                 MatrixTransform.Scale(1.2);
