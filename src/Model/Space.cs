@@ -9,7 +9,7 @@ namespace RedRing.Model
     public class Space
     {
         public ObservableCollection<I3DModel> DisplayModel { get; private set; }
-        public Camera Camera { get;private set; }
+        public Camera Camera { get; private set; }
 
         public Space()
         {

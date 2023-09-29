@@ -9,11 +9,11 @@ namespace RedRing.Framework.Geometry.Double.Geometry3D
 
         public Point Max { get; }
 
-        public double Width => Max.X - Min.X;
+        public readonly double Width => Max.X - Min.X;
 
-        public double Depth => Max.Y - Min.Y;
+        public readonly double Depth => Max.Y - Min.Y;
 
-        public double Height => Max.Z - Min.Z;
+        public readonly double Height => Max.Z - Min.Z;
 
         public AABB(Point min, Point max)
         {
