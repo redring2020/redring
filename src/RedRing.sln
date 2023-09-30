@@ -46,9 +46,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Numerics", "Common\Numerics
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WapProjRedRing", "WapProjRedRing\WapProjRedRing.wapproj", "{CFB54E08-34B8-437F-92C5-1DD000DD7EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "UnitTest\Framework\IO\IO.csproj", "{FE2FFB98-8F07-413C-9BF0-D811304BFC57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "UnitTest\Framework\IO\IO.csproj", "{FE2FFB98-8F07-413C-9BF0-D811304BFC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry", "UnitTest\Framework\Geometry\Geometry.csproj", "{7248FE04-092C-4FF4-B89E-837A82956F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry", "UnitTest\Framework\Geometry\Geometry.csproj", "{7248FE04-092C-4FF4-B89E-837A82956F71}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -210,6 +212,18 @@ Global
 		{7248FE04-092C-4FF4-B89E-837A82956F71}.Release|x64.Build.0 = Release|Any CPU
 		{7248FE04-092C-4FF4-B89E-837A82956F71}.Release|x86.ActiveCfg = Release|x86
 		{7248FE04-092C-4FF4-B89E-837A82956F71}.Release|x86.Build.0 = Release|x86
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|Any CPU.ActiveCfg = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|Any CPU.Build.0 = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|x64.ActiveCfg = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|x64.Build.0 = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|x86.ActiveCfg = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Debug|x86.Build.0 = Debug
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|Any CPU.ActiveCfg = Release
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|Any CPU.Build.0 = Release
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|x64.ActiveCfg = Release
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|x64.Build.0 = Release
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|x86.ActiveCfg = Release
+		{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
