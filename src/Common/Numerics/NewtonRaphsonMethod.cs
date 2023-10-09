@@ -5,9 +5,15 @@ namespace RedRing.Common.Numerics
 {
     public class NewtonRaphsonMethod
     {
+        public delegate double Func(double x);
         const int Limit = 1000;
+        static double DifferentialEquation(Func f, double xd)
+        {
+            double h = Pow(10.0, -9.0);
+            return (f(xd + h) - f(xd)) / h;
+        }
 
-        public static bool Calc(NewtonRaphsonFunc func, double a, out double ans, double eps = EPS, int limit = Limit)
+        public static bool Calc(Func func, double a, out double ans, double eps = EPS, int limit = Limit)
         {
             if (func == null) throw new ArgumentNullException("func");
             if (eps <= 0) throw new ArgumentOutOfRangeException("eps");
@@ -23,9 +29,9 @@ namespace RedRing.Common.Numerics
                 while (i < limit)
                 {
                     i++;
-                    ah = a - func(a) / DifferentialEquation.Calc(func, a);
+                    ah = a - func(a) / DifferentialEquation(func, a);
                     // 収束条件を満たせばループ終了
-                    if (CalculationDefine.Abs(ah - a) < eps)
+                    if (Abs(ah - a) < eps)
                     {
                         ans = ah;
                         break;

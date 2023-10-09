@@ -9,8 +9,6 @@ namespace RedRing.Common.Numerics {
         public const double PI = Math.PI;
         public static double Pow(double x, double y) => Math.Pow(x, y);
 
-        public static double Sqrt(double d) => System.Math.Sqrt(d);
-
-        public delegate double NewtonRaphsonFunc(double x);
+        public static double Sqrt(double d) => Math.Sqrt(d);
     }
 }
