@@ -1,4 +1,4 @@
-﻿using System;
+﻿using RedRing.Common.Numerics;
 
 namespace RedRing.Common.Numerics.LinerAlgebra.Double
 {
@@ -280,7 +280,7 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         {
             get
             {
-                return Math.Sqrt(LengthSquared);
+                return CalculationDefine.Sqrt(LengthSquared);
             }
         }
     }

@@ -26,24 +26,12 @@ namespace RedRing.Common.Numerics.LinerAlgebra.Double
         /// <summary>
         /// 長さの2乗
         /// </summary>
-        public double LengthSquared
-        {
-            get
-            {
-                return X * X + Y * Y + Z * Z;
-            }
-        }
+        public double LengthSquared => X * X + Y * Y + Z * Z;
 
         /// <summary>
         /// 長さ
         /// </summary>
-        public double Length
-        {
-            get
-            {
-                return Math.Sqrt(LengthSquared);
-            }
-        }
+        public double Length => RedRing.Common.Numerics.CalculationDefine.Sqrt(LengthSquared);
 
         /// <summary>
         /// コンストラクタ
