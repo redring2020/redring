@@ -4,10 +4,10 @@ using RedRing.Framework.Geometry.Double.Geometry3D;
 namespace Geometry
 {
     [TestClass]
-    public class TestAABB : AssertFailedException
+    public class UnitTestAABB : AssertFailedException
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestAABB()
         {
             var cubeFacet = STLFile.LoadAsync(@"..\..\..\..\..\TestData\STLBinary\cube-Binary.stl");
             Assert.IsNotNull(cubeFacet);

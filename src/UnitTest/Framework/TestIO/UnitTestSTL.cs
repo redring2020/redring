@@ -8,7 +8,7 @@ namespace RedRing.UnitTest.Framework.IO
         [TestMethod]
         public async Task TestLoadAsciiSTLSingleFacet()
         {
-            var singleFacet = await STLFile.LoadAsync(@"..\..\..\..\TestData\STLAscii\singleFacet-ascii.stl");
+            var singleFacet = await STLFile.LoadAsync(@"..\..\..\..\..\TestData\STLAscii\singleFacet-ascii.stl");
             Assert.IsNotNull(singleFacet);
 
             Assert.IsNotNull(new[] { Tuple.Create(0, 1, 2) });
@@ -29,7 +29,7 @@ namespace RedRing.UnitTest.Framework.IO
         [TestMethod]
         public async Task TestBinarySTLCube()
         {
-            var cubeFacet = await STLFile.LoadAsync(@"..\..\..\..\TestData\STLBinary\cube-Binary.stl");
+            var cubeFacet = await STLFile.LoadAsync(@"..\..\..\..\..\TestData\STLBinary\cube-Binary.stl");
             Assert.IsNotNull(cubeFacet);
         }
     }

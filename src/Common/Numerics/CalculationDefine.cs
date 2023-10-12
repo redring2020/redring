@@ -4,7 +4,7 @@ namespace RedRing.Common.Numerics {
     public static class CalculationDefine
     {
         public static double Abs(double value) => Math.Abs(value);
-        public const double EPS = 1E-8;
+        public const double EPS = 1e-8;
 
         public const double PI = Math.PI;
         public static double Pow(double x, double y) => Math.Pow(x, y);
