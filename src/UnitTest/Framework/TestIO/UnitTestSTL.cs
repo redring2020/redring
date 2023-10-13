@@ -1,6 +1,6 @@
 using RedRing.Framework.IO;
 
-namespace RedRing.UnitTest.Framework.IO
+namespace RedRing.UnitTest.Framework.TestIO
 {
     [TestClass]
     public class TestSTLFile : AssertFailedException

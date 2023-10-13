@@ -1,7 +1,7 @@
 using static RedRing.Common.Numerics.CalculationDefine;
 using RedRing.Common.Numerics;
 
-namespace Numerics
+namespace RedRing.UnitTest.Common.TestNumerics
 {
     [TestClass]
     public class UnitTestNewtonRaphshonMethod

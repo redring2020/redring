@@ -1,7 +1,7 @@
 using RedRing.Framework.IO;
 using RedRing.Framework.Geometry.Double.Geometry3D;
 
-namespace Geometry
+namespace RedRing.UnitTest.Framework.TestGeometry
 {
     [TestClass]
     public class UnitTestAABB : AssertFailedException
