@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "ViewModel\ViewModel.csproj", "{B3A1C736-6083-4C9F-A3B2-A6E08517DEE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "src\ViewModel\ViewModel.csproj", "{B3A1C736-6083-4C9F-A3B2-A6E08517DEE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{68C6989E-0652-4B83-9DE8-7B5C0BFA9A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "src\Model\Model.csproj", "{68C6989E-0652-4B83-9DE8-7B5C0BFA9A81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{332C7417-95FC-404F-97FA-CF939ED88534}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "Framework\IO\IO.csproj", "{0A14577B-41AB-45C7-B096-A964BB9AE68F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "src\Framework\IO\IO.csproj", "{0A14577B-41AB-45C7-B096-A964BB9AE68F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry", "Framework\Geometry\Geometry.csproj", "{5641B236-FDB0-4F27-A031-8451DF530340}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry", "src\Framework\Geometry\Geometry.csproj", "{5641B236-FDB0-4F27-A031-8451DF530340}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topology", "Framework\Topology\Topology.csproj", "{75837C4D-6332-44DD-AFED-18C0C10169C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Topology", "src\Framework\Topology\Topology.csproj", "{75837C4D-6332-44DD-AFED-18C0C10169C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BEACE88C-AF5E-4E20-8E75-31AE8DBDAE81}"
 EndProject
@@ -34,27 +34,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "STLBinary", "STLBinary", "{
 		UnitTest\TestData\STLBinary\cube-binary.stl = UnitTest\TestData\STLBinary\cube-binary.stl
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedRing", "RedRing\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedRing", "src\RedRing\RedRing.csproj", "{0AC46F1F-DDEC-4164-BC44-A018D41735B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Element", "Framework\Element\Element.csproj", "{ADC79DFD-1F25-47EB-8C34-5D89C9717797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Element", "src\Framework\Element\Element.csproj", "{ADC79DFD-1F25-47EB-8C34-5D89C9717797}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attribute", "Framework\Attribute\Attribute.csproj", "{43566F81-B1B8-4481-A4FA-539BC67D970B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attribute", "src\Framework\Attribute\Attribute.csproj", "{43566F81-B1B8-4481-A4FA-539BC67D970B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{11680ACD-8B76-43E4-B6D4-53887F34ECDD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Numerics", "Common\Numerics\Numerics.csproj", "{7029F7BD-D96C-47DD-9FD7-E67E3CF3B3B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Numerics", "src\Common\Numerics\Numerics.csproj", "{7029F7BD-D96C-47DD-9FD7-E67E3CF3B3B5}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WapProjRedRing", "WapProjRedRing\WapProjRedRing.wapproj", "{CFB54E08-34B8-437F-92C5-1DD000DD7EC8}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WapProjRedRing", "src\WapProjRedRing\WapProjRedRing.wapproj", "{CFB54E08-34B8-437F-92C5-1DD000DD7EC8}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "src\Setup\Setup.vdproj", "{C67F1067-7CFA-4F98-9A33-7BAF95BC7C25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F955FDED-A2A1-4D12-858C-E019F6590148}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNumerics", "UnitTest\Common\TestNumerics\TestNumerics.csproj", "{189461B9-390F-4746-BDDB-F6BE07D88AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNumerics", "src\UnitTest\Common\TestNumerics\TestNumerics.csproj", "{189461B9-390F-4746-BDDB-F6BE07D88AC1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGeometry", "UnitTest\Framework\TestGeometry\TestGeometry.csproj", "{3814543A-F151-4135-BFC7-A1449CDA4320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGeometry", "src\UnitTest\Framework\TestGeometry\TestGeometry.csproj", "{3814543A-F151-4135-BFC7-A1449CDA4320}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestIO", "UnitTest\Framework\TestIO\TestIO.csproj", "{3D911290-2103-4D00-BD6E-247D712DBD00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestIO", "src\UnitTest\Framework\TestIO\TestIO.csproj", "{3D911290-2103-4D00-BD6E-247D712DBD00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
